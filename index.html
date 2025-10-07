@@ -277,9 +277,8 @@
   </div>
 
   <div class="sticky-cta">
-    <span><strong>Custom String Art</strong> – ₹1,999</span>
+    <span><strong>Custom String Art</strong> – ₹4,999</span>
     <div>
-      <a href="#order">Order</a>
       <a href="https://wa.me/919824917935" target="_blank" class="whatsapp">WhatsApp</a>
     </div>
   </div>
@@ -297,9 +296,10 @@
       const phone = document.getElementById('phone').value;
       const photo = document.getElementById('photo').value;
       const notes = document.getElementById('notes').value;
-      const msg = encodeURIComponent(`Hi, I am ${name}. I want to order a String Art Portrait.\nPhone: ${phone}\nPhoto: ${photo}\nNotes: ${notes}`);
+      const msg = encodeURIComponent(`Hi, I am *${name}.* I want to order a String Art Portrait.\nPhone: ${phone}\nPhoto: ${photo}\nNotes: ${notes} \n Inquiry From Website`);
       window.open(`https://wa.me/${WA_NUMBER}?text=${msg}`,'_blank');
     }
   </script>
 </body>
 </html>
+
