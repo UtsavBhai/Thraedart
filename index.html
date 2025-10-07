@@ -38,15 +38,8 @@
       border-radius: 0 0 var(--radius) var(--radius);
       box-shadow: 0 4px 20px rgba(0,0,0,0.1);
     }
-    .hero h1 {
-      font-size: 26px;
-      margin-bottom: 10px;
-    }
-    .hero p {
-      font-size: 15px;
-      margin-top: 0;
-    }
-
+    .hero h1 { font-size: 26px; margin-bottom: 10px; }
+    .hero p { font-size: 15px; margin-top: 0; }
     .hero img {
       width: 100%;
       max-width: 320px;
@@ -66,24 +59,27 @@
       position: relative;
       z-index: 5;
     }
-    .highlight div {
-      text-align: center;
-      font-size: 13px;
-    }
+    .highlight div { text-align: center; font-size: 13px; }
 
-    /* Gallery */
+    /* Auto-scroll gallery */
     .gallery {
       display: flex;
-      overflow-x: auto;
-      gap: 10px;
-      padding: 16px 0;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
     }
+
     .gallery img {
-      height: 150px;
-      border-radius: var(--radius);
-      flex: 0 0 auto;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      flex-shrink: 0;
+      width: 200px; /* adjust as needed */
+      margin-right: 10px; /* spacing between images */
     }
+
+    @media (min-width: 720px) {
+      .gallery img {
+        height: 220px;
+      }
+    }
+
 
     /* Price & CTA */
     .price-box {
@@ -94,10 +90,7 @@
       margin-top: 16px;
       text-align: center;
     }
-    .price {
-      font-size: 22px;
-      font-weight: 700;
-    }
+    .price { font-size: 22px; font-weight: 700; }
     .old-price {
       text-decoration: line-through;
       color: var(--muted);
@@ -115,14 +108,10 @@
       font-weight: 600;
       transition: 0.3s;
     }
-    .cta:hover {
-      background: #c92f3e;
-    }
+    .cta:hover { background: #c92f3e; }
 
     /* Testimonials */
-    .testimonials {
-      margin-top: 20px;
-    }
+    .testimonials { margin-top: 20px; }
     .testi {
       background: white;
       padding: 14px;
@@ -130,10 +119,7 @@
       margin-bottom: 10px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     }
-    .stars {
-      color: #ffb703;
-      font-size: 14px;
-    }
+    .stars { color: #ffb703; font-size: 14px; }
 
     /* Order Form */
     form {
@@ -141,11 +127,11 @@
       gap: 10px;
       margin-top: 16px;
     }
-    input, textarea {
-      padding: 12px;
+    input {
+      padding: 14px;
       border-radius: var(--radius);
       border: 1px solid #ddd;
-      font-size: 14px;
+      font-size: 15px;
     }
     button[type=submit] {
       background: var(--primary);
@@ -164,64 +150,87 @@
       color: var(--muted);
     }
 
-    
     @media(min-width: 720px) {
       .hero h1 {font-size: 36px;}
       .gallery img {height: 200px;}
-      .sticky-cta {display: none;}
     }
 
-    /* Sticky CTA Animation */
-  @keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-8px); }
-  }
+    /* Pulse Animation */
+    @keyframes pulse {
+      0% { transform: scale(1); box-shadow: 0 0 0 rgba(37, 211, 53, 0.5); }
+      50% { transform: scale(1.1); box-shadow: 0 0 15px rgba(37, 211, 53, 0.8); }
+      100% { transform: scale(1); box-shadow: 0 0 0 rgba(37, 211, 53, 0.5); }
+    }
 
-  @keyframes pulse {
-    0% { transform: scale(1); box-shadow: 0 0 0 rgba(37, 211, 53, 0.5); }
-    50% { transform: scale(1.05); box-shadow: 0 0 10px rgba(37, 211, 53, 0.7); }
-    100% { transform: scale(1); box-shadow: 0 0 0 rgba(37, 211, 53, 0.5); }
-  }
+    /* Mobile Sticky CTA */
+    .sticky-cta {
+      position: fixed;
+      bottom: 12px;
+      left: 12px;
+      right: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: white;
+      padding: 10px 14px;
+      border-radius: 14px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+      z-index: 9999;
+    }
+    .sticky-cta .text {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--dark);
+      line-height: 1.3;
+    }
+    .sticky-cta a {
+      background: #25d366;
+      color: white;
+      padding: 10px 14px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 13px;
+      animation: pulse 2s infinite;
+    }
+    .sticky-cta a:hover { transform: scale(1.05); }
 
-  .sticky-cta {
-    position: fixed;
-    bottom: 10px;
-    left: 10px;
-    right: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: white;
-    padding: 10px;
-    border-radius: var(--radius);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-    animation: bounce 1.5s infinite;
-    z-index: 9999;
-  }
+    @media(min-width: 720px) {
+      .sticky-cta { display: none; }
+    }
 
-  .sticky-cta a {
-    background: var(--primary);
-    color: white;
-    padding: 10px 14px;
-    border-radius: var(--radius);
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 14px;
-    transition: transform 0.2s;
-  }
-
-  .sticky-cta a:hover {
-    transform: scale(1.05);
-  }
-
-  .sticky-cta a.whatsapp {
-    background: #25d366;
-    animation: pulse 2s infinite;
-  }
-
-  @media(min-width: 720px) {
-    .sticky-cta { display: none; }
-  }
+    /* Desktop Floating WhatsApp Button */
+    .whatsapp-desktop {
+      display: none;
+    }
+    @media(min-width: 720px) {
+      .whatsapp-desktop {
+        display: flex;
+        align-items: center;
+        position: fixed;
+        bottom: 25px;
+        right: 25px;
+        background: #25d366;
+        color: white;
+        border-radius: 50px;
+        text-decoration: none;
+        padding: 10px 18px;
+        font-weight: 600;
+        font-size: 15px;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+        animation: pulse 2s infinite;
+        transition: all 0.3s ease;
+      }
+      .whatsapp-desktop:hover {
+        transform: scale(1.05);
+      }
+      .whatsapp-desktop svg {
+        width: 28px;
+        height: 28px;
+        margin-right: 8px;
+        fill: white;
+      }
+    }
   </style>
 </head>
 <body>
@@ -239,13 +248,19 @@
     </div>
 
     <div class="gallery">
-      <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=800&auto=format&fit=crop" alt="gallery1">
-      <img src="https://images.unsplash.com/photo-1504198453319-5ce911bafcde?q=80&w=800&auto=format&fit=crop" alt="gallery2">
-      <img src="https://images.unsplash.com/photo-1526318472351-c75fcf070945?q=80&w=800&auto=format&fit=crop" alt="gallery3">
-    </div>
+      1<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhIvfn4PNESnpvHAOJgiYsArJpBz1guedd6hPhvOWpKgZ0rL672fecFX0dIZ2bWTaGeY3FD0n5T0ytfNYIxCzTTdVjLc1BLjLAeRT0IeEbNhcAjjjWaB079HJb9dZoM2enw2RF13CvLw5QIKxVXwSZMcD7ykj5XFWZ9uSGYgLKpUFz5krykQ048eno2QVQ/s1600/sap3.webp" alt="gallery1">
+      2<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiqj7zEZm0_EZDq3HKJE4GNYBEJKhotjI5XE8eYbGwXfzcil0HPZNyGijMK9tEY01MvmESvRo_QTgQiqD1_aXY8Rzi1mDXfz1CnlPRa1TYI3igbYhxsAqmaSlTNLQNJ-LrYLp4cEhDapRs4IMsdbKNzCblNXgQpKVrGL3U20Rn8g25UtPRc5UoRA_xy3zA/s1600/sap2.webp" alt="gallery2">
+      3<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhIvfn4PNESnpvHAOJgiYsArJpBz1guedd6hPhvOWpKgZ0rL672fecFX0dIZ2bWTaGeY3FD0n5T0ytfNYIxCzTTdVjLc1BLjLAeRT0IeEbNhcAjjjWaB079HJb9dZoM2enw2RF13CvLw5QIKxVXwSZMcD7ykj5XFWZ9uSGYgLKpUFz5krykQ048eno2QVQ/s1600/sap3.webp" alt="gallery1">
+      4<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiqj7zEZm0_EZDq3HKJE4GNYBEJKhotjI5XE8eYbGwXfzcil0HPZNyGijMK9tEY01MvmESvRo_QTgQiqD1_aXY8Rzi1mDXfz1CnlPRa1TYI3igbYhxsAqmaSlTNLQNJ-LrYLp4cEhDapRs4IMsdbKNzCblNXgQpKVrGL3U20Rn8g25UtPRc5UoRA_xy3zA/s1600/sap2.webp" alt="gallery2">
+
+      5<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhIvfn4PNESnpvHAOJgiYsArJpBz1guedd6hPhvOWpKgZ0rL672fecFX0dIZ2bWTaGeY3FD0n5T0ytfNYIxCzTTdVjLc1BLjLAeRT0IeEbNhcAjjjWaB079HJb9dZoM2enw2RF13CvLw5QIKxVXwSZMcD7ykj5XFWZ9uSGYgLKpUFz5krykQ048eno2QVQ/s1600/sap3.webp" alt="gallery1">
+      6<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiqj7zEZm0_EZDq3HKJE4GNYBEJKhotjI5XE8eYbGwXfzcil0HPZNyGijMK9tEY01MvmESvRo_QTgQiqD1_aXY8Rzi1mDXfz1CnlPRa1TYI3igbYhxsAqmaSlTNLQNJ-LrYLp4cEhDapRs4IMsdbKNzCblNXgQpKVrGL3U20Rn8g25UtPRc5UoRA_xy3zA/s1600/sap2.webp" alt="gallery2">
+      7<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhIvfn4PNESnpvHAOJgiYsArJpBz1guedd6hPhvOWpKgZ0rL672fecFX0dIZ2bWTaGeY3FD0n5T0ytfNYIxCzTTdVjLc1BLjLAeRT0IeEbNhcAjjjWaB079HJb9dZoM2enw2RF13CvLw5QIKxVXwSZMcD7ykj5XFWZ9uSGYgLKpUFz5krykQ048eno2QVQ/s1600/sap3.webp" alt="gallery1">
+      8<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiqj7zEZm0_EZDq3HKJE4GNYBEJKhotjI5XE8eYbGwXfzcil0HPZNyGijMK9tEY01MvmESvRo_QTgQiqD1_aXY8Rzi1mDXfz1CnlPRa1TYI3igbYhxsAqmaSlTNLQNJ-LrYLp4cEhDapRs4IMsdbKNzCblNXgQpKVrGL3U20Rn8g25UtPRc5UoRA_xy3zA/s1600/sap2.webp" alt="gallery2">
+</div>
 
     <div class="price-box">
-      <div class="price">₹1,999 <span class="old-price">₹2,499</span></div>
+      <div class="price">₹4,999 <span class="old-price">₹4,999</span></div>
       <div>Limited Time Offer — Free Gift Wrapping 🎉</div>
       <a href="#order" class="cta">Order Now</a>
     </div>
@@ -268,20 +283,23 @@
       <form onsubmit="return handleSubmit(event)">
         <input name="name" id="name" placeholder="Your Name" required>
         <input name="phone" id="phone" placeholder="Phone Number" required>
-        <input name="photo" id="photo" placeholder="Photo Link (Google Drive / Dropbox)" required>
-        <textarea name="notes" id="notes" rows="3" placeholder="Any Notes (Occasion, Frame Preference, etc.)"></textarea>
         <button type="submit">Order via WhatsApp</button>
       </form>
     </section>
-
   </div>
 
+  <!-- Mobile Sticky CTA -->
   <div class="sticky-cta">
-    <span><strong>Custom String Art</strong> – ₹4,999</span>
-    <div>
-      <a href="https://wa.me/919824917935" target="_blank" class="whatsapp">WhatsApp</a>
+    <div class="text">
+      🧵 <strong>String Art Portrait</strong><br> ₹4,999 • Handmade
     </div>
+    <a href="https://wa.me/919824917935" target="_blank">WhatsApp</a>
   </div>
+
+  <!-- Desktop Floating WhatsApp -->
+  <a href="https://wa.me/919824917935?text=Hi%20Stringora%2C%20I%20want%20to%20order%20a%20custom%20String%20Art%20Portrait.%20Please%20help%20me%20with%20the%20details." target="_blank" class="whatsapp-desktop" aria-label="Chat on WhatsApp">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" style="height: 30px;width:30px" alt="WhatsApp Chat">&nbsp;Chat with us
+  </a>
 
   <footer>
     Stringora © 2025 • Handmade in India 🇮🇳 • Support: 9824917935
@@ -289,18 +307,38 @@
 
   <script>
     const WA_NUMBER = '919824917935';
-
     function handleSubmit(e){
       e.preventDefault();
       const name = document.getElementById('name').value;
       const phone = document.getElementById('phone').value;
-      const photo = document.getElementById('photo').value;
-      const notes = document.getElementById('notes').value;
-      const msg = encodeURIComponent(`Hi, I am *${name}.* I want to order a String Art Portrait.\nPhone: ${phone}\nPhoto: ${photo}\nNotes: ${notes} \n Inquiry From Website`);
+      const msg = encodeURIComponent(`Hi, I am *${name}.* I want to order a String Art Portrait.\nPhone: ${phone}\nInquiry From Website`);
       window.open(`https://wa.me/${WA_NUMBER}?text=${msg}`,'_blank');
     }
   </script>
+
+  <script>
+const gallery = document.querySelector('.gallery');
+let scrollSpeed = 1; // px per frame
+
+// Duplicate images for infinite loop
+gallery.innerHTML += gallery.innerHTML;
+
+// Smooth infinite scroll
+function autoScroll() {
+  gallery.scrollLeft += scrollSpeed;
+
+  // Reset when first set of images are scrolled
+  if (gallery.scrollLeft >= gallery.scrollWidth / 2) {
+    gallery.scrollLeft = 0;
+    gallery.innerHTML += gallery.innerHTML;
+  }
+
+  requestAnimationFrame(autoScroll);
+}
+
+autoScroll();
+</script>
+
+
 </body>
 </html>
-
-
