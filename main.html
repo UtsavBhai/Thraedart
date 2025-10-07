@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
+  <title>Stringora — Custom String Art Portraits</title>
+  <meta name="description" content="Handmade String Art Portraits — perfect gifts for birthdays, anniversaries, and home decor. Fast delivery. Satisfaction guaranteed." />
+
+  <!-- Minimal, mobile-first styles (inline for speed) -->
+  <style>
+    :root{
+      --accent:#D63E3E; /* warm red */
+      --accent-2:#FF7A59;
+      --bg:#fff;
+      --muted:#6b7280;
+      --card:#ffffff;
+      --radius:14px;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    html,body{height:100%;margin:0;background:var(--bg);color:#111}
+    .container{max-width:820px;margin:0 auto;padding:18px}
+
+    /* HERO */
+    .hero{display:flex;gap:14px;align-items:flex-start}
+    .hero-left{flex:1}
+    .brand{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+    .logo{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
+    h1{font-size:20px;margin:0 0 6px 0;line-height:1.05}
+    p.lead{margin:0;color:var(--muted);font-size:14px}
+
+    /* Product visual (simple responsive mockup) */
+    .mock{width:120px;height:120px;border-radius:12px;flex-shrink:0;background:linear-gradient(180deg,#fff 0,#f8f8f8 100%);box-shadow:0 8px 24px rgba(12,12,12,0.08);display:grid;place-items:center}
+    .mock img{width:100%;height:100%;object-fit:cover;border-radius:12px}
+
+    /* Price + CTA */
+    .card{background:var(--card);border-radius:14px;padding:12px;margin-top:12px;box-shadow:0 6px 18px rgba(12,12,12,0.06)}
+    .price-row{display:flex;justify-content:space-between;align-items:center;gap:12px}
+    .price{font-size:18px;font-weight:700}
+    .old{font-size:12px;color:var(--muted);text-decoration:line-through}
+    .cta{display:inline-block;background:var(--accent);color:#fff;padding:12px 14px;border-radius:12px;font-weight:700;text-decoration:none}
+
+    /* Benefits */
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
+    .chip{background:#fff;border-radius:10px;padding:8px;text-align:center;font-size:12px;box-shadow:0 6px 16px rgba(12,12,12,0.04)}
+
+    /* Gallery */
+    .gallery{display:flex;gap:8px;overflow-x:auto;padding:8px 0;margin-top:12px}
+    .gallery img{height:120px;border-radius:10px;flex:0 0 auto}
+
+    /* Testimonials */
+    .testi{margin-top:14px}
+    .testi-card{background:linear-gradient(180deg,#fff,#fff);padding:10px;border-radius:12px;box-shadow:0 8px 20px rgba(12,12,12,0.04);margin-bottom:10px}
+    .stars{color:#f59e0b;font-size:14px}
+
+    /* Form */
+    form{display:grid;gap:8px;margin-top:12px}
+    input,select,textarea{width:100%;padding:12px;border-radius:10px;border:1px solid #e6e7eb;font-size:14px}
+    button[type=submit]{background:var(--accent);color:white;padding:12px;border-radius:10px;border:0;font-weight:700}
+
+    footer{padding:18px 0;text-align:center;color:var(--muted);font-size:13px}
+
+    /* Sticky bottom bar for mobile CTA */
+    .sticky-cta{display:flex;gap:8px;position:fixed;left:10px;right:10px;bottom:12px;background:linear-gradient(90deg,rgba(255,255,255,0.98),rgba(255,255,255,0.98));padding:10px;border-radius:14px;box-shadow:0 12px 36px rgba(12,12,12,0.12);align-items:center}
+    .sticky-left{display:flex;gap:8px;align-items:center}
+    .sticky-price{font-weight:800}
+
+    /* Responsive tweaks */
+    @media(min-width:720px){
+      .hero{align-items:center}
+      h1{font-size:28px}
+      .mock{width:180px;height:180px}
+      .gallery img{height:150px}
+      .grid{grid-template-columns:repeat(4,1fr)}
+      .container{padding:26px}
+      .sticky-cta{display:none}
+    }
+
+    /* Accessibility/UX small bits */
+    a:focus,button:focus,input:focus{outline:3px solid rgba(214,62,62,0.16);outline-offset:3px}
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <header class="hero" role="banner">
+      <div class="mock" aria-hidden="true">
+        <!-- Replace with your product photo. Keep 1:1 or 4:3 crop for best results -->
+        <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=600&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="String Art Portrait example"/>
+      </div>
+
+      <div class="hero-left">
+        <div class="brand">
+          <div class="logo">S</div>
+          <div style="font-size:13px">
+            <div style="font-weight:700">Stringora</div>
+            <div style="color:var(--muted);font-size:12px">Handmade string art portraits</div>
+          </div>
+        </div>
+
+        <h1>Custom String Art Portraits — handmade, personal & frame-ready</h1>
+        <p class="lead">Upload a photo. We'll turn it into a beautiful string portrait — perfect for birthdays, anniversaries or home decor. Free gift wrap on first 50 orders.</p>
+
+        <div class="card" aria-hidden="false">
+          <div class="price-row">
+            <div>
+              <div class="price">₹1,999 <span class="old">₹2,499</span></div>
+              <div style="font-size:12px;color:var(--muted)">Standard size 8x10" • Ready in 7–10 days</div>
+            </div>
+            <div>
+              <a class="cta" href="#order">Order Now</a>
+            </div>
+          </div>
+          <div class="grid" style="margin-top:10px">
+            <div class="chip">🎁 Gift wrap</div>
+            <div class="chip">🚚 Fast shipping</div>
+            <div class="chip">🔧 7-day revisions</div>
+          </div>
+        </div>
+
+      </div>
+    </header>
+
+    <!-- Gallery -->
+    <section aria-labelledby="gallery-title">
+      <h2 id="gallery-title" style="font-size:16px;margin-top:14px;margin-bottom:6px">See finished portraits</h2>
+      <div class="gallery" role="list">
+        <!-- Replace images with your own high quality photos -->
+        <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="String art 1"/>
+        <img src="https://images.unsplash.com/photo-1504198453319-5ce911bafcde?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="String art 2"/>
+        <img src="https://images.unsplash.com/photo-1526318472351-c75fcf070945?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="String art 3"/>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testi" aria-labelledby="testi-title">
+      <h3 id="testi-title" style="margin:0;font-size:15px">What customers say</h3>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <div style="font-weight:700;margin-top:6px">"Absolutely loved it — came out better than the photo!"</div>
+        <div style="color:var(--muted);font-size:13px;margin-top:6px">— Rhea, Mumbai</div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <div style="font-weight:700;margin-top:6px">"Perfect anniversary gift. My husband cried. 10/10."</div>
+        <div style="color:var(--muted);font-size:13px;margin-top:6px">— Aman, Surat</div>
+      </div>
+    </section>
+
+    <!-- Order form -->
+    <section id="order" aria-labelledby="order-title">
+      <h3 id="order-title" style="margin-top:12px;font-size:15px">Order your custom portrait</h3>
+      <form id="orderForm" onsubmit="return handleSubmit(event)" autocomplete="on">
+        <label class="sr-only">Your name</label>
+        <input name="name" id="name" placeholder="Your name" required />
+
+        <label class="sr-only">Phone</label>
+        <input name="phone" id="phone" placeholder="Phone (e.g. +91 9XXXXXXXXX)" pattern="\+?\d[\d \-]{6,}" required />
+
+        <label class="sr-only">Email</label>
+        <input name="email" id="email" type="email" placeholder="Email (optional)" />
+
+        <label class="sr-only">Photo URL or Dropbox/Drive link</label>
+        <input name="photo" id="photo" placeholder="Photo link (Google Drive / Dropbox / IMGUR)" required />
+
+        <label class="sr-only">Notes</label>
+        <textarea name="notes" id="notes" rows="3" placeholder="Any notes (occasion, colors, frame preference)"></textarea>
+
+        <button type="submit">Confirm order — ₹1,999</button>
+
+        <div style="font-size:12px;color:var(--muted);margin-top:8px">You will receive a message on WhatsApp with final payment steps. 100% money-back if portrait not delivered within 20 days.</div>
+      </form>
+    </section>
+
+    <!-- Quick FAQ -->
+    <section style="margin-top:12px">
+      <h4 style="margin:0 0 6px 0;font-size:14px">Quick FAQ</h4>
+      <details>
+        <summary style="font-weight:700">How long does it take?</summary>
+        <p style="margin:6px 0 0 0;color:var(--muted);font-size:13px">Production takes 7–10 working days from confirmation + shipping time.</p>
+      </details>
+      <details>
+        <summary style="font-weight:700">What photos work best?</summary>
+        <p style="margin:6px 0 0 0;color:var(--muted);font-size:13px">Clear, high-resolution photos with the subject well-lit and minimal background work best.</p>
+      </details>
+    </section>
+
+    <footer>
+      <div style="font-weight:700">Stringora</div>
+      <div style="margin-top:6px">Made with care in India • Support: +91-XXXXXXXXXX</div>
+    </footer>
+  </div>
+
+  <!-- Sticky CTA for mobile to increase conversion -->
+  <div class="sticky-cta" role="region" aria-label="Order bar">
+    <div class="sticky-left">
+      <div style="width:56px;height:56px;border-radius:10px;overflow:hidden;flex-shrink:0;background:#fff;display:grid;place-items:center;box-shadow:0 6px 16px rgba(12,12,12,0.06)">
+        <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=600&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="product" style="width:56px;height:56px;object-fit:cover"/>
+      </div>
+      <div style="margin-left:8px">
+        <div style="font-size:13px;font-weight:700">Custom portrait</div>
+        <div style="font-size:12px;color:var(--muted)">₹1,999 • Free gift</div>
+      </div>
+    </div>
+    <div style="margin-left:auto;display:flex;gap:6px;align-items:center">
+      <a href="#order" class="cta" style="padding:10px 12px;border-radius:10px">Order</a>
+      <a href="#" id="whatsappBtn" style="background:#25D366;color:white;padding:10px 12px;border-radius:10px;text-decoration:none;font-weight:700">WhatsApp</a>
+    </div>
+  </div>
+
+  <!-- Inline JS: form handling + basic analytics hooks -->
+  <script>
+    // Replace with your WhatsApp number in international format, no spaces (e.g. 919876543210)
+    const WA_NUMBER = 'YOUR_PHONE_NUMBER';
+
+    // Prefilled message template for WhatsApp
+    function makeWhatsAppMessage(formData){
+      const name = formData.get('name') || '';
+      const phone = formData.get('phone') || '';
+      const photo = formData.get('photo') || '';
+      const notes = formData.get('notes') || '';
+      return encodeURIComponent(`Hi, I am ${name}. I want to order a String Art portrait. Phone: ${phone}. Photo: ${photo}. Notes: ${notes}`);
+    }
+
+    // Handle form submit: open WhatsApp with prefilled message (works well for mobile ad traffic)
+    function handleSubmit(e){
+      e.preventDefault();
+      const form = document.getElementById('orderForm');
+      const data = new FormData(form);
+
+      // Basic validation
+      if(!data.get('name') || !data.get('phone') || !data.get('photo')){
+        alert('Please fill name, phone and photo link.');
+        return false;
+      }
+
+      // Conversion tracking hook (example) - replace YOUR_PIXEL_ID with actual id and enable below
+      // if(window.fbq) window.fbq('track', 'Lead');
+      // if(window.gtag) gtag('event','conversion',{'send_to':'AW-CONVERSION_ID'});
+
+      const msg = makeWhatsAppMessage(data);
+      if(!WA_NUMBER || WA_NUMBER === 'YOUR_PHONE_NUMBER'){
+        // If user didn't set WA number, fallback to mailto
+        const mailto = `mailto:orders@stringora.example?subject=New%20Order&body=${msg}`;
+        window.location.href = mailto;
+      } else {
+        // Open WhatsApp chat (works on mobile and web.whatsapp.com on desktop)
+        const waUrl = `https://wa.me/${WA_NUMBER}?text=${msg}`;
+        window.open(waUrl, '_blank');
+      }
+
+      // Optimistic UI: show a thank you and disable form to avoid duplicates
+      form.querySelector('button[type=submit]').disabled = true;
+      form.querySelector('button[type=submit]').innerText = 'Opening WhatsApp...';
+      return false;
+    }
+
+    // WhatsApp quick button
+    document.getElementById('whatsappBtn').addEventListener('click', function(ev){
+      ev.preventDefault();
+      const wa = WA_NUMBER && WA_NUMBER !== 'YOUR_PHONE_NUMBER' ? `https://wa.me/${WA_NUMBER}` : 'mailto:orders@stringora.example';
+      window.open(wa,'_blank');
+    });
+
+    // Small improvement: focus first field on mobile
+    window.addEventListener('load', ()=>{
+      const name = document.getElementById('name');
+      if(name) name.focus();
+    });
+  </script>
+
+</body>
+</html>
