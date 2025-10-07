@@ -124,15 +124,41 @@
     .cta:hover { background: #c92f3e; }
 
     /* Testimonials */
-    .testimonials { margin-top: 20px; }
-    .testi {
-      background: white;
-      padding: 14px;
-      border-radius: var(--radius);
-      margin-bottom: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    .testimonials {
+      max-width: 860px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
     }
-    .stars { color: #ffb703; font-size: 14px; }
+    .testimonials h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .testi {
+      background: #f1f1f1;
+      padding: 15px 20px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      display: none; /* hide by default */
+      transition: all 0.3s ease;
+    }
+    .stars {
+      color: #ffb400;
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+    .see-more {
+      display: block;
+      text-align: center;
+      margin-top: 10px;
+      cursor: pointer;
+      border: none;
+      color: blue;
+      font-size: 16px;
+      background:none;
+    }
 
     /* Order Form */
     form {
@@ -321,6 +347,67 @@
         font-size: 14px;
       }
     }
+
+    .faq-section {
+      max-width: 860px;
+      margin: 50px auto;
+      padding: 0 20px;
+    }
+
+    .faq-section h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 30px;
+      color: #333;
+    }
+
+    .faq-item {
+      margin-bottom: 15px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      background: #fff;
+    }
+
+    .faq-question {
+      width: 100%;
+      text-align: left;
+      padding: 15px 20px;
+      font-size: 1.1rem;
+      background: #f9f9f9;
+      border: none;
+      cursor: pointer;
+      position: relative;
+      transition: background 0.3s;
+    }
+
+    .faq-question::after {
+      content: '+';
+      position: absolute;
+      right: 20px;
+      font-size: 1.5rem;
+      transition: transform 0.3s;
+    }
+
+    .faq-item.active .faq-question::after {
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      padding: 0 20px;
+      font-size: 1rem;
+      color: #555;
+      line-height: 1.6;
+      border-top: 1px solid #eee;
+      transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
+    }
+
+    .faq-item.active .faq-answer {
+      padding: 15px 20px;
+      max-height: 500px; /* Enough to fit content */
+    }
   </style>
 </head>
 <body>
@@ -365,29 +452,43 @@
       <a href="https://utsavbhai.github.io/Thraedart/main.html" class="cta">ORDER NOW</a>
       <br><br>
           <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgzSFcSifyvVw1ocGQZsNAQKX_oz7aHpiqBbbzY6HLEDkIJrr-p4LdEqiFHGBKh2CiG4W8JN2r-bdxigXL-8y-cPTBXWgoUhoexZ8j83K9Q2VDG-PDctkGkVzad7QLWzwKfZ6vmKJkbf2ngqZTJvKgDOXioVw7OOrWRES8lG7kUThPOHBhqKuPCCB7RHIg/s1600/safe.png" alt="safe checkout" style="text-align: center;width:80%;max-width:500px;">
-
     </div>
+    <br>
 
+  <div class="testimonials">
+    <h2>⭐ Customer Reviews ⭐</h2>
 
-    <div class="testimonials">
-      <div class="testi">
-        <div class="stars">★★★★★</div>
-        “Absolutely loved it — came out better than the photo!”<br>
-        <strong>- Rhea, Mumbai</strong>
-      </div>
-      <div class="testi">
-        <div class="stars">★★★★★</div>
-        “Perfect anniversary gift. My husband cried. 10/10.”<br>
-        <strong>- Aman, Surat</strong>
-      </div>
-    </div>
+    <!-- All reviews -->
+    <div class="testi"><div class="stars">★★★★★</div>“Absolutely loved it — came out better than the photo!”<br><strong>- Rhea, Mumbai</strong></div>
+    <div class="testi"><div class="stars">★★★★★</div>“Perfect anniversary gift. My husband cried. 10/10.”<br><strong>- Aman, Surat</strong></div>
+    <div class="testi"><div class="stars">★★★★★</div>“High quality and fast delivery!”<br><strong>- Priya, Delhi</strong></div>
+    <div class="testi"><div class="stars">★★★★★</div>“My kids loved it. Very happy with purchase.”<br><strong>- Sandeep, Pune</strong></div>
+    <div class="testi"><div class="stars">★★★★★</div>“Amazing craftsmanship, worth every penny.”<br><strong>- Neha, Bangalore</strong></div>
+    <div class="testi"><div class="stars">★★★★★</div>“Came in perfect packaging and on time.”<br><strong>- Karan, Mumbai</strong></div>
+    <div class="testi"><div class="stars">★★★★★</div>“Customer support was super helpful.”<br><strong>- Anjali, Surat</strong></div>
+    <div class="testi"><div class="stars">★★★★★</div>“Exceeded expectations, highly recommend!”<br><strong>- Rohit, Chennai</strong></div>
+    <div class="testi"><div class="stars">★★★★★</div>“Beautiful and unique gift. Loved it.”<br><strong>- Simran, Jaipur</strong></div>
+    <div class="testi"><div class="stars">★★★★★</div>“Exactly like the picture, very satisfied.”<br><strong>- Akash, Kolkata</strong></div>
+    <div class="testi"><div class="stars">★★★★★</div>“Fast delivery and amazing quality.”<br><strong>- Tanya, Ahmedabad</strong></div>
+    <div class="testi"><div class="stars">★★★★★</div>“Highly recommend for anyone looking for gifts.”<br><strong>- Varun, Surat</strong></div>
+    <div class="testi"><div class="stars">★★★★★</div>“Beautiful design, my mom loved it.”<br><strong>- Priyanka, Mumbai</strong></div>
+    <div class="testi"><div class="stars">★★★★★</div>“Looks perfect on my wall!”<br><strong>- Raj, Pune</strong></div>
+    <div class="testi"><div class="stars">★★★★★</div>“Well packed and came safely.”<br><strong>- Meera, Delhi</strong></div>
+    <div class="testi"><div class="stars">★★★★★</div>“Gifted to my friend, she was so happy.”<br><strong>- Sameer, Bangalore</strong></div>
+    <div class="testi"><div class="stars">★★★★★</div>“Quality is top-notch.”<br><strong>- Nisha, Surat</strong></div>
+    <div class="testi"><div class="stars">★★★★★</div>“Will buy again for sure!”<br><strong>- Arjun, Jaipur</strong></div>
+    <div class="testi"><div class="stars">★★★★★</div>“Loved the detailing, very artistic.”<br><strong>- Ritu, Kolkata</strong></div>
+    <div class="testi"><div class="stars">★★★★★</div>“Perfect size and color.”<br><strong>- Vivek, Chennai</strong></div>
+
+    <button class="see-more">See More Reviews</button>
+  </div>
 
     <section id="order">
-      <h2 style="margin-top:20px">📩 Place Your Order Via WhatsApp</h2>
+      <h2 style="margin-top:20px;text-align: center;">📩 Order Via WhatsApp 📩</h2>
       <form onsubmit="return handleSubmit(event)">
         <input name="name" id="name" placeholder="Your Name" required>
         <input name="phone" id="phone" placeholder="Phone Number" required>
-        <button type="submit">Order via WhatsApp</button>
+        <button type="submit">Order Via WhatsApp</button>
       </form>
     </section>
   </div>
@@ -405,6 +506,54 @@
   <a href="https://wa.me/919824917935?text=Hi%20Stringora%2C%20I%20want%20to%20order%20a%20custom%20String%20Art%20Portrait.%20Please%20help%20me%20with%20the%20details." target="_blank" class="whatsapp-desktop" aria-label="Chat on WhatsApp">
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" style="height: 30px;width:30px" alt="WhatsApp Chat">&nbsp;Chat with us
   </a>
+
+
+  <!--Frequently Asked Questions-->
+  <section class="faq-section">
+  <h2>Frequently Asked Questions</h2>
+
+  <div class="faq-item">
+    <button class="faq-question">How long does it take to create a thread art portrait?</button>
+    <div class="faq-answer">
+      Typically, each portrait takes 5–7 days to complete, depending on the size and complexity of the design.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">Can I provide my own photo for the portrait?</button>
+    <div class="faq-answer">
+      Absolutely! We work best with clear, high-resolution photos for accurate thread detailing.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">What sizes are available?</button>
+    <div class="faq-answer">
+      We offer multiple sizes: 8"x10", 12"x16", and custom sizes upon request.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">Is it a perfect gift for special occasions?</button>
+    <div class="faq-answer">
+      Yes! Our thread art portraits are ideal for birthdays, anniversaries, weddings, and other memorable events.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">How do I place an order?</button>
+    <div class="faq-answer">
+      Simply click the "Order Now" button on our website and share your photo. We'll guide you through the rest.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">Do you ship across India?</button>
+    <div class="faq-answer">
+      Yes, we offer safe and secure shipping to all major cities in India.
+    </div>
+  </div>
+</section>
 
   <footer>
     Stringora © 2025 • Handmade in India 🇮🇳 • Support: 9824917935
@@ -527,5 +676,37 @@ autoScroll();
 
     startAutoSlide();
   </script>
+
+  <script>
+  const reviews = document.querySelectorAll('.testi');
+  const btn = document.querySelector('.see-more');
+  let visibleCount = 4; // Initially show 4 reviews
+
+  function showReviews() {
+    for (let i = 0; i < visibleCount; i++) {
+      if (reviews[i]) reviews[i].style.display = 'block';
+    }
+    // Hide button if all reviews are shown
+    if (visibleCount >= reviews.length) btn.style.display = 'none';
+  }
+
+  btn.addEventListener('click', () => {
+    visibleCount += 4; // Show 4 more reviews per click
+    showReviews();
+  });
+
+  // Initial display
+  showReviews();
+</script>
+
+<script>
+  const faqItems = document.querySelectorAll('.faq-item');
+
+  faqItems.forEach(item => {
+    item.querySelector('.faq-question').addEventListener('click', () => {
+      item.classList.toggle('active');
+    });
+  });
+</script>
 </body>
 </html>
