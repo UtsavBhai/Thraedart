@@ -1,117 +1,279 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Phone Number Formatter (India)</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
+  <title>Stringora — Custom String Art Portraits</title>
+  <meta name="description" content="Turn your favorite photo into a beautiful handmade String Art Portrait. Perfect gifts for birthdays, anniversaries, or decor. Fast shipping across India." />
+
   <style>
+    :root {
+      --primary: #e63946;
+      --secondary: #ff9f43;
+      --dark: #1a1a1a;
+      --light: #ffffff;
+      --muted: #6b7280;
+      --radius: 16px;
+      font-family: 'Poppins', system-ui, sans-serif;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      max-width: 600px;
-      margin: 40px auto;
-      padding: 20px;
-      background: #f9f9f9;
+      margin: 0;
+      background: #fafafa;
+      color: var(--dark);
     }
-    h2 {
+
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 16px;
+    }
+
+    /* Hero Section */
+    .hero {
       text-align: center;
-    }
-    textarea {
-      width: 100%;
-      height: 150px;
-      padding: 10px;
-      margin-top: 10px;
-      font-size: 14px;
-    }
-    button {
-      display: inline-block;
-      padding: 10px 15px;
-      margin-top: 10px;
-      margin-right: 10px;
-      background: #007bff;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
       color: white;
+      padding: 40px 16px;
+      border-radius: 0 0 var(--radius) var(--radius);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    .hero h1 {
+      font-size: 26px;
+      margin-bottom: 10px;
+    }
+    .hero p {
       font-size: 15px;
-      border: none;
-      cursor: pointer;
-      border-radius: 4px;
+      margin-top: 0;
     }
-    button:hover {
-      background: #0056b3;
+
+    .hero img {
+      width: 100%;
+      max-width: 320px;
+      border-radius: var(--radius);
+      margin-top: 20px;
     }
-    #output {
-      white-space: pre;
+
+    /* Highlight Strip */
+    .highlight {
+      display: flex;
+      justify-content: space-around;
       background: white;
       padding: 10px;
-      margin-top: 10px;
-      border: 1px solid #ccc;
-      min-height: 100px;
+      border-radius: var(--radius);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+      margin-top: -24px;
+      position: relative;
+      z-index: 5;
+    }
+    .highlight div {
+      text-align: center;
+      font-size: 13px;
+    }
+
+    /* Gallery */
+    .gallery {
+      display: flex;
+      overflow-x: auto;
+      gap: 10px;
+      padding: 16px 0;
+    }
+    .gallery img {
+      height: 150px;
+      border-radius: var(--radius);
+      flex: 0 0 auto;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    /* Price & CTA */
+    .price-box {
+      background: white;
+      border-radius: var(--radius);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+      padding: 16px;
+      margin-top: 16px;
+      text-align: center;
+    }
+    .price {
+      font-size: 22px;
+      font-weight: 700;
+    }
+    .old-price {
+      text-decoration: line-through;
+      color: var(--muted);
       font-size: 14px;
+      margin-left: 6px;
+    }
+    .cta {
+      display: inline-block;
+      margin-top: 12px;
+      background: var(--primary);
+      color: white;
+      padding: 14px 20px;
+      border-radius: var(--radius);
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    .cta:hover {
+      background: #c92f3e;
+    }
+
+    /* Testimonials */
+    .testimonials {
+      margin-top: 20px;
+    }
+    .testi {
+      background: white;
+      padding: 14px;
+      border-radius: var(--radius);
+      margin-bottom: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    .stars {
+      color: #ffb703;
+      font-size: 14px;
+    }
+
+    /* Order Form */
+    form {
+      display: grid;
+      gap: 10px;
+      margin-top: 16px;
+    }
+    input, textarea {
+      padding: 12px;
+      border-radius: var(--radius);
+      border: 1px solid #ddd;
+      font-size: 14px;
+    }
+    button[type=submit] {
+      background: var(--primary);
+      color: white;
+      padding: 14px;
+      border: none;
+      border-radius: var(--radius);
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px 0;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    /* Sticky CTA */
+    .sticky-cta {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      right: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: white;
+      padding: 10px;
+      border-radius: var(--radius);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    }
+    .sticky-cta a {
+      background: var(--primary);
+      color: white;
+      padding: 10px 14px;
+      border-radius: var(--radius);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .sticky-cta a.whatsapp {
+      background: #25d366;
+    }
+
+    @media(min-width: 720px) {
+      .hero h1 {font-size: 36px;}
+      .gallery img {height: 200px;}
+      .sticky-cta {display: none;}
     }
   </style>
 </head>
 <body>
+  <section class="hero">
+    <h1>✨ Transform Your Photo into a Stunning String Art Portrait</h1>
+    <p>Handmade with love. Perfect for birthdays, anniversaries & gifting. Delivered across India 🇮🇳</p>
+    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhVrbQ6WxDFKWwqDgeGKRLH9w8IduEGZaNyg4_lI8EQJ91YGavNFGaG-ywbklEJKhGqt_EN95cc_ZCVYmjJ6lvD7FzfstpVcxFxeWRhdYJyh_sfBaSjqFrFcdir4iAI_NMlgpzOPafvdxt-j9NeR20ucwcW8_HLeFT1tRG4LFNWaBarnq6R2jQQRhDbSw4/s1600/string_art_portrait-removebg-preview.png" alt="String Art Portrait">
+  </section>
 
-  <h2>📞 Indian Number Formatter (+91 XXXXX XXXXX)</h2>
+  <div class="container">
+    <div class="highlight">
+      <div>🚚 Fast Delivery</div>
+      <div>🎁 Perfect Gift</div>
+      <div>💯 Money Back Guarantee</div>
+    </div>
 
-  <label for="input">Paste your messy numbers here:</label>
-  <textarea id="input" placeholder="e.g. +91 93748 15224, +91 9374815224, +91 937 481 5224"></textarea>
+    <div class="gallery">
+      <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=800&auto=format&fit=crop" alt="gallery1">
+      <img src="https://images.unsplash.com/photo-1504198453319-5ce911bafcde?q=80&w=800&auto=format&fit=crop" alt="gallery2">
+      <img src="https://images.unsplash.com/photo-1526318472351-c75fcf070945?q=80&w=800&auto=format&fit=crop" alt="gallery3">
+    </div>
 
-  <div>
-    <button onclick="formatNumbers()">Format Numbers</button>
-    <button onclick="copyToClipboard()">Copy All</button>
+    <div class="price-box">
+      <div class="price">₹1,999 <span class="old-price">₹2,499</span></div>
+      <div>Limited Time Offer — Free Gift Wrapping 🎉</div>
+      <a href="#order" class="cta">Order Now</a>
+    </div>
+
+    <div class="testimonials">
+      <div class="testi">
+        <div class="stars">★★★★★</div>
+        “Absolutely loved it — came out better than the photo!”<br>
+        <strong>- Rhea, Mumbai</strong>
+      </div>
+      <div class="testi">
+        <div class="stars">★★★★★</div>
+        “Perfect anniversary gift. My husband cried. 10/10.”<br>
+        <strong>- Aman, Surat</strong>
+      </div>
+    </div>
+
+    <section id="order">
+      <h2 style="margin-top:20px">📩 Place Your Order</h2>
+      <form onsubmit="return handleSubmit(event)">
+        <input name="name" id="name" placeholder="Your Name" required>
+        <input name="phone" id="phone" placeholder="Phone Number" required>
+        <input name="photo" id="photo" placeholder="Photo Link (Google Drive / Dropbox)" required>
+        <textarea name="notes" id="notes" rows="3" placeholder="Any Notes (Occasion, Frame Preference, etc.)"></textarea>
+        <button type="submit">Order via WhatsApp</button>
+      </form>
+    </section>
+
   </div>
 
-  <h3>✅ Cleaned Unique Numbers (Paste in Excel ↓)</h3>
-  <div id="output"></div>
+  <div class="sticky-cta">
+    <span><strong>Custom String Art</strong> – ₹1,999</span>
+    <div>
+      <a href="#order">Order</a>
+      <a href="https://wa.me/919824917935" target="_blank" class="whatsapp">WhatsApp</a>
+    </div>
+  </div>
+
+  <footer>
+    Stringora © 2025 • Handmade in India 🇮🇳 • Support: 9824917935
+  </footer>
 
   <script>
-    function formatNumbers() {
-      const input = document.getElementById('input').value;
+    const WA_NUMBER = '919824917935';
 
-      const rawNumbers = input
-        .split(/[\n,]+/)
-        .map(n => n.trim())
-        .filter(n => n !== "");
-
-      const cleanedNumbers = rawNumbers.map(num => {
-        let digits = num.replace(/\D/g, "");
-
-        // Remove leading 91 if number is longer than 10
-        if (digits.startsWith("91") && digits.length > 10) {
-          digits = digits.slice(digits.length - 10);
-        }
-
-        // Keep only last 10 digits if number is long
-        if (digits.length > 10) {
-          digits = digits.slice(-10);
-        }
-
-        if (digits.length === 10) {
-          // Format as +91 XXXXX XXXXX
-          const formatted = `+91 ${digits.slice(0, 5)} ${digits.slice(5)}`;
-          return formatted;
-        } else {
-          return null;
-        }
-      }).filter(num => num !== null);
-
-      // Remove duplicates
-      const uniqueNumbers = [...new Set(cleanedNumbers)];
-
-      // Use \r\n for Excel compatibility
-      document.getElementById('output').textContent = uniqueNumbers.join("\r\n");
-    }
-
-    function copyToClipboard() {
-      const output = document.getElementById('output').textContent;
-      const blob = new Blob([output], { type: 'text/plain' });
-      const data = [new ClipboardItem({ 'text/plain': blob })];
-
-      navigator.clipboard.write(data).then(() => {
-        alert('✅ Unique numbers copied! Paste into Excel — each number will be in a new row.');
-      }).catch(err => {
-        console.error('Copy failed:', err);
-      });
+    function handleSubmit(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const phone = document.getElementById('phone').value;
+      const photo = document.getElementById('photo').value;
+      const notes = document.getElementById('notes').value;
+      const msg = encodeURIComponent(`Hi, I am ${name}. I want to order a String Art Portrait.\nPhone: ${phone}\nPhoto: ${photo}\nNotes: ${notes}`);
+      window.open(`https://wa.me/${WA_NUMBER}?text=${msg}`,'_blank');
     }
   </script>
-
 </body>
 </html>
