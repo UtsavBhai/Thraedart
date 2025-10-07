@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Phone Number Formatter (India)</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #f9f9f9;
+    }
+    h2 {
+      text-align: center;
+    }
+    textarea {
+      width: 100%;
+      height: 150px;
+      padding: 10px;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+    button {
+      display: inline-block;
+      padding: 10px 15px;
+      margin-top: 10px;
+      margin-right: 10px;
+      background: #007bff;
+      color: white;
+      font-size: 15px;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    #output {
+      white-space: pre;
+      background: white;
+      padding: 10px;
+      margin-top: 10px;
+      border: 1px solid #ccc;
+      min-height: 100px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>📞 Indian Number Formatter (+91 XXXXX XXXXX)</h2>
+
+  <label for="input">Paste your messy numbers here:</label>
+  <textarea id="input" placeholder="e.g. +91 93748 15224, +91 9374815224, +91 937 481 5224"></textarea>
+
+  <div>
+    <button onclick="formatNumbers()">Format Numbers</button>
+    <button onclick="copyToClipboard()">Copy All</button>
+  </div>
+
+  <h3>✅ Cleaned Unique Numbers (Paste in Excel ↓)</h3>
+  <div id="output"></div>
+
+  <script>
+    function formatNumbers() {
+      const input = document.getElementById('input').value;
+
+      const rawNumbers = input
+        .split(/[\n,]+/)
+        .map(n => n.trim())
+        .filter(n => n !== "");
+
+      const cleanedNumbers = rawNumbers.map(num => {
+        let digits = num.replace(/\D/g, "");
+
+        // Remove leading 91 if number is longer than 10
+        if (digits.startsWith("91") && digits.length > 10) {
+          digits = digits.slice(digits.length - 10);
+        }
+
+        // Keep only last 10 digits if number is long
+        if (digits.length > 10) {
+          digits = digits.slice(-10);
+        }
+
+        if (digits.length === 10) {
+          // Format as +91 XXXXX XXXXX
+          const formatted = `+91 ${digits.slice(0, 5)} ${digits.slice(5)}`;
+          return formatted;
+        } else {
+          return null;
+        }
+      }).filter(num => num !== null);
+
+      // Remove duplicates
+      const uniqueNumbers = [...new Set(cleanedNumbers)];
+
+      // Use \r\n for Excel compatibility
+      document.getElementById('output').textContent = uniqueNumbers.join("\r\n");
+    }
+
+    function copyToClipboard() {
+      const output = document.getElementById('output').textContent;
+      const blob = new Blob([output], { type: 'text/plain' });
+      const data = [new ClipboardItem({ 'text/plain': blob })];
+
+      navigator.clipboard.write(data).then(() => {
+        alert('✅ Unique numbers copied! Paste into Excel — each number will be in a new row.');
+      }).catch(err => {
+        console.error('Copy failed:', err);
+      });
+    }
+  </script>
+
+</body>
+</html>
