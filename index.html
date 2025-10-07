@@ -55,7 +55,7 @@
       padding: 10px;
       border-radius: var(--radius);
       box-shadow: 0 4px 16px rgba(0,0,0,0.05);
-      margin-top: -24px;
+      margin-top: -40px;
       position: relative;
       z-index: 5;
       margin-bottom: 20px;
@@ -103,7 +103,7 @@
       margin-top: 16px;
       text-align: center;
     }
-    .price { font-size: 22px; font-weight: 700; }
+    .price { font-size: 22px; font-weight: 700;color:#c92f3e }
     .old-price {
       text-decoration: line-through;
       color: var(--muted);
@@ -244,6 +244,83 @@
         fill: white;
       }
     }
+
+    /* image slider */
+    .slider {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .slides {
+      display: flex;
+      transition: transform 0.6s ease-in-out;
+    }
+
+    .slides img {
+      width: 100%;
+      flex-shrink: 0;
+      object-fit: cover;
+    }
+
+    /*Image slider Navigation arrows */
+    .nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.4);
+      color: #fff;
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 50%;
+      font-size: 18px;
+      user-select: none;
+      transition: background 0.3s;
+    }
+
+    .nav:hover {
+      background: rgba(0, 0, 0, 0.6);
+    }
+
+    .prev {
+      left: 10px;
+    }
+
+    .next {
+      right: 10px;
+    }
+
+    /*Image Slider Dots */
+    .dots {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 6px;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      background: rgba(255, 255, 255, 0.6);
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .dot.active {
+      background: #fff;
+    }
+
+    @media (max-width: 600px) {
+      .nav {
+        padding: 6px;
+        font-size: 14px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -255,10 +332,25 @@
 
   <div class="container">
     <div class="highlight">
-      <div>🚚 Fast Delivery</div>
-      <div>🎁 Perfect Gift</div>
-      <div>💯 Satisfaction</div>
+      <div>🎁<br>Perfect Gift</div>
+      <div>💯<br>Satisfaction</div>
+      <div>🚚<br>Fast Delivery</div>
     </div>
+
+
+    <div class="slider">
+    <div class="slides">
+      <img src="https://picsum.photos/id/1015/800/400" alt="Slide 1">
+      <img src="https://picsum.photos/id/1025/800/400" alt="Slide 2">
+      <img src="https://picsum.photos/id/1035/800/400" alt="Slide 3">
+      <img src="https://picsum.photos/id/1045/800/400" alt="Slide 4">
+    </div>
+
+    <div class="nav prev">&#10094;</div>
+    <div class="nav next">&#10095;</div>
+    <div class="dots"></div>
+  </div>
+
 
     <div class="gallery">
       <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhIvfn4PNESnpvHAOJgiYsArJpBz1guedd6hPhvOWpKgZ0rL672fecFX0dIZ2bWTaGeY3FD0n5T0ytfNYIxCzTTdVjLc1BLjLAeRT0IeEbNhcAjjjWaB079HJb9dZoM2enw2RF13CvLw5QIKxVXwSZMcD7ykj5XFWZ9uSGYgLKpUFz5krykQ048eno2QVQ/s1600/sap3.webp" alt="gallery1">
@@ -268,7 +360,7 @@
     </div>
 
     <div class="price-box">
-      <div class="price">₹4,999 <span class="old-price">₹9,999</span></div>
+      <div class="price">Only ₹4,999 <span class="old-price">₹9,999</span></div>
       <div>Limited Time Offer — Free Gift Wrapping 🎉</div>
       <a href="https://utsavbhai.github.io/Thraedart/main.html" class="cta">ORDER NOW</a>
       <br><br>
@@ -291,7 +383,7 @@
     </div>
 
     <section id="order">
-      <h2 style="margin-top:20px">📩 Place Your Order</h2>
+      <h2 style="margin-top:20px">📩 Place Your Order Via WhatsApp</h2>
       <form onsubmit="return handleSubmit(event)">
         <input name="name" id="name" placeholder="Your Name" required>
         <input name="phone" id="phone" placeholder="Phone Number" required>
@@ -302,10 +394,11 @@
 
   <!-- Mobile Sticky CTA -->
   <div class="sticky-cta">
-    <div class="text">
-      🧵 <strong>String Art Portrait</strong><br> ₹4,999 • Handmade
-    </div>
-    <a href="https://wa.me/919824917935" target="_blank">WhatsApp</a>
+  <div class="text">
+    🧵 <strong>String Art Portrait</strong><br>
+    <span id="urgency-text" style="color:red;">🎁 Special Offer</span>
+  </div>
+    <a href="https://wa.me/919824917935?text=Hi%20Stringora%2C%20I%20want%20to%20order%20a%20custom%20String%20Art%20Portrait.%20Please%20help%20me%20with%20the%20details." target="_blank">WhatsApp</a>
   </div>
 
   <!-- Desktop Floating WhatsApp -->
@@ -351,6 +444,88 @@ function autoScroll() {
 autoScroll();
 </script>
 
+<script>
+  // Array of random urgency messages
+  const messages = [
+    "🎁 Only 5 Left @ ₹4999",
+    "🔥 Only Today 50% OFF",
+    "🚨 Hurry! Offer Ending Soon",
+    "⏰ Limited Stock ~ ₹4999",
+    "💥 Flash Deal ~ ₹4999 Only",
+    "🎨 Last Few Slots Left @ ₹4999"
+  ];
 
+  // Pick a random message
+  const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+
+  // Update the span text
+  document.getElementById("urgency-text").textContent = randomMessage;
+</script>
+
+<script>
+    const slides = document.querySelector('.slides');
+    const images = document.querySelectorAll('.slides img');
+    const prev = document.querySelector('.prev');
+    const next = document.querySelector('.next');
+    const dotsContainer = document.querySelector('.dots');
+
+    let currentIndex = 0;
+    const totalSlides = images.length;
+    let autoSlide;
+
+    // Create dots dynamically
+    for (let i = 0; i < totalSlides; i++) {
+      const dot = document.createElement('div');
+      dot.classList.add('dot');
+      if (i === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => goToSlide(i));
+      dotsContainer.appendChild(dot);
+    }
+
+    const dots = document.querySelectorAll('.dot');
+
+    function showSlide(index) {
+      slides.style.transform = `translateX(-${index * 100}%)`;
+      dots.forEach(dot => dot.classList.remove('active'));
+      dots[index].classList.add('active');
+    }
+
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % totalSlides;
+      showSlide(currentIndex);
+    }
+
+    function prevSlide() {
+      currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+      showSlide(currentIndex);
+    }
+
+    function goToSlide(index) {
+      currentIndex = index;
+      showSlide(currentIndex);
+      resetAutoSlide();
+    }
+
+    function startAutoSlide() {
+      autoSlide = setInterval(nextSlide, 3000);
+    }
+
+    function resetAutoSlide() {
+      clearInterval(autoSlide);
+      startAutoSlide();
+    }
+
+    next.addEventListener('click', () => {
+      nextSlide();
+      resetAutoSlide();
+    });
+
+    prev.addEventListener('click', () => {
+      prevSlide();
+      resetAutoSlide();
+    });
+
+    startAutoSlide();
+  </script>
 </body>
 </html>
