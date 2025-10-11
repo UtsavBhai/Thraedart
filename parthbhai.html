@@ -111,8 +111,8 @@
               return `
                 <tr>
                   <td>${material}</td>
-                  <td>${totals[material].qty.toFixed(2)} ${unit}</td>
-                  <td>₹${totals[material].amount.toFixed(2)}</td>
+                  <td>${totals[material].qty} ${unit}</td>
+                  <td>₹${totals[material].amount}</td>
                 </tr>
               `;
             }).join('')}
