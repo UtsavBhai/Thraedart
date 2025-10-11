@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thread Art - Secure Payment</title>
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #254262, #4a6fa5);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    .container {
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+      padding: 30px 25px;
+      max-width: 420px;
+      width: 100%;
+      text-align: center;
+      animation: fadeIn 0.6s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .logo {
+      width: 100px;
+      margin: 0 auto 15px;
+      display: block;
+    }
+    h1 {
+      font-size: 24px;
+      color: #254262;
+      margin-bottom: 10px;
+    }
+    p.desc {
+      color: #4a6fa5;
+      font-size: 15px;
+      margin-bottom: 25px;
+    }
+    .status-message {
+      font-size: 20px;
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+    .success {
+      color: #28a745;
+      animation: popIn 0.5s ease-in-out;
+    }
+    .failed {
+      color: #dc3545;
+      animation: popIn 0.5s ease-in-out;
+    }
+    @keyframes popIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    .details {
+      font-size: 16px;
+      margin-top: 10px;
+      line-height: 1.6;
+      color: #333;
+      word-break: break-word;
+    }
+    .whatsapp-btn {
+      display: none;
+      margin-top: 20px;
+      background: #25d366;
+      color: #fff;
+      font-size: 16px;
+      padding: 12px 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+      font-weight: 600;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+    .whatsapp-btn:hover {
+      background: #1ebe5d;
+    }
+    .whatsapp-btn img {
+      width: 22px;
+      height: 22px;
+    }
+    @media (max-width: 480px) {
+      .container { padding: 20px 15px; }
+      h1 { font-size: 20px; }
+      .status-message { font-size: 18px; }
+      .whatsapp-btn { font-size: 15px; padding: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <img src="https://yourlogo.com/logo.png" alt="Thread Art" class="logo">
+    <h1>Thread Art Secure Payment</h1>
+    <p class="desc">Complete your payment securely to confirm your order.</p>
+
+    <div id="statusMessage" class="status-message"></div>
+    <div id="paymentDetails" class="details"></div>
+
+    <!-- WhatsApp Button inside card -->
+    <a id="whatsappSupport" class="whatsapp-btn" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+      Chat with Support
+    </a>
+  </div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js";
+    import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-database.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyB2QCFSMeCY4ywjvAav2uZ2KFQdB_6p3-M",
+      authDomain: "thraed-art.firebaseapp.com",
+      projectId: "thraed-art",
+      storageBucket: "thraed-art.firebasestorage.app",
+      messagingSenderId: "90197810969",
+      appId: "1:90197810969:web:08d89fba750820bb49af88",
+      measurementId: "G-1TSCQP5X64",
+      databaseURL: "https://thraed-art-default-rtdb.firebaseio.com/"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+
+    // ✅ Helper to read URL params
+    function getQueryParam(param) {
+      return new URLSearchParams(window.location.search).get(param);
+    }
+
+    const phoneFromURL = getQueryParam('phone') || '';
+    const orderIdFromURL = getQueryParam('orderId') || '';
+    const kFromURL = getQueryParam('k') || '';  // ✅ read k (amount type)
+
+    // ✅ Price mapping based on k value
+    const priceMap = {
+      's42': 4999,
+      's60': 6999,
+      's100': 12999,
+      'd42': 7999,
+      'd60': 9999,
+      'd100': 14999
+    };
+
+    const selectedAmount = priceMap[kFromURL] || 0; // default to 0 if invalid
+    const razorAmount = selectedAmount * 100; // Razorpay takes amount in paise
+
+    var options = {
+      "key": "rzp_test_RRdm8JZlzLj4h2",
+      "amount": razorAmount,
+      "name": "Thread Art",
+      "description": `Thread Art Portrait - ${kFromURL.toUpperCase()}`,
+      "image": "https://yourlogo.com/logo.png",
+      "handler": function (response) {
+        const amountPaid = selectedAmount;
+        const paymentId = response.razorpay_payment_id;
+
+        localStorage.setItem("payment_id", paymentId);
+        localStorage.setItem("amount_paid", amountPaid);
+
+        // ✅ Store payment in Firebase with k
+        push(ref(database, 'payments'), {
+          orderid: orderIdFromURL,
+          phone: phoneFromURL,
+          payment_id: paymentId,
+          amount: amountPaid,
+          k: kFromURL,
+          timestamp: Date.now()
+        });
+
+        showStatus(true, paymentId, amountPaid);
+      },
+      "prefill": { "contact": phoneFromURL },
+      "theme": { "color": "#254262" },
+      "modal": {
+        "ondismiss": function() {
+          localStorage.setItem("payment_id", "");
+          localStorage.setItem("amount_paid", 0);
+          showStatus(false);
+        }
+      }
+    };
+
+    var rzp1 = new Razorpay(options);
+
+    function showStatus(success, paymentId = "", amount = 0) {
+      const statusMessage = document.getElementById("statusMessage");
+      const paymentDetails = document.getElementById("paymentDetails");
+      const whatsappBtn = document.getElementById("whatsappSupport");
+
+      if(success && paymentId) {
+        statusMessage.innerHTML = `<div class="success">✅ Payment Successful!</div>`;
+        paymentDetails.innerHTML = `Order ID: <b>${orderIdFromURL}<br>Payment ID: <b>${paymentId}</b><br>Amount Paid: ₹${amount}`;
+
+        const msg = encodeURIComponent(`Hello, I have completed my payment.\nOrder ID: *${orderIdFromURL}*\nPayment ID: *${paymentId}*\nAmount Paid: *₹${amount}*`);
+        whatsappBtn.href = `https://wa.me/919824917935?text=${msg}`; // Replace with your WhatsApp number
+        whatsappBtn.style.display = "flex";
+      } else {
+        statusMessage.innerHTML = `<div class="failed">❌ Payment Failed or Cancelled!<br><br><a href="" onclick="location.reload()">Click Here To Pay</a></div>`;
+        paymentDetails.innerHTML = ``;
+        whatsappBtn.style.display = "none";
+      }
+    }
+
+    window.onload = function() {
+      const storedPaymentId = localStorage.getItem("payment_id");
+      const storedAmount = localStorage.getItem("amount_paid");
+
+      if(storedPaymentId && storedPaymentId !== "") {
+        showStatus(true, storedPaymentId, storedAmount);
+      } else {
+        if(selectedAmount > 0) {
+          rzp1.open();
+        } else {
+          document.getElementById("statusMessage").innerHTML = `<div class="failed">Invalid payment link</div>`;
+        }
+      }
+    };
+  </script>
+</body>
+</html>
