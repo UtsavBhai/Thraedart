@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Material Entry Panel</title>
+  <script type="module">
+    // ================== Firebase Config ==================
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-app.js";
+    import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-database.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyDFtnxgYC4rQRBPK3yDODnxZxsvtz5ZkLo",
+      authDomain: "tic-toe-tea.firebaseapp.com",
+      databaseURL: "https://tic-toe-tea-default-rtdb.firebaseio.com",
+      projectId: "tic-toe-tea",
+      storageBucket: "tic-toe-tea.firebasestorage.app",
+      messagingSenderId: "263286551736",
+      appId: "1:263286551736:web:fb734fcacd17686f24304d"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+
+    // ================== Add Data ==================
+    const entryForm = document.getElementById('entryForm');
+    const totalDisplay = document.getElementById('totalDisplay');
+    const quantityInput = document.getElementById('quantity');
+    const priceInput = document.getElementById('price');
+
+    function calculateTotal() {
+      const qty = parseFloat(quantityInput.value) || 0;
+      const price = parseFloat(priceInput.value) || 0;
+      totalDisplay.textContent = "Total: ₹ " + (qty * price).toFixed(2);
+    }
+
+    quantityInput.addEventListener('input', calculateTotal);
+    priceInput.addEventListener('input', calculateTotal);
+
+    entryForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const data = {
+        partyName: document.getElementById('partyName').value,
+        material: document.getElementById('material').value,
+        unit: document.getElementById('unit').value,
+        quantity: parseFloat(quantityInput.value),
+        price: parseFloat(priceInput.value),
+        total: parseFloat(quantityInput.value) * parseFloat(priceInput.value),
+        timestamp: new Date().toLocaleString()
+      };
+
+      await push(ref(db, 'entries'), data);
+      entryForm.reset();
+      totalDisplay.textContent = "Total: ₹ 0.00";
+      alert('✅ Data Saved Successfully!');
+    });
+
+    // ================== Show Data ==================
+    const dataTable = document.getElementById('dataTableBody');
+    const totalsPanel = document.getElementById('totalsPanel');
+
+    onValue(ref(db, 'entries'), (snapshot) => {
+      dataTable.innerHTML = '';
+
+      // Initialize totals
+      const totals = {
+        Cement: { qty: 0, amount: 0 },
+        Reti: { qty: 0, amount: 0 },
+        Kapchi: { qty: 0, amount: 0 },
+        Steel: { qty: 0, amount: 0 }
+      };
+
+      snapshot.forEach((childSnapshot) => {
+        const item = childSnapshot.val();
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${item.partyName}</td>
+          <td>${item.material}</td>
+          <td>${item.unit}</td>
+          <td>${item.quantity}</td>
+          <td>₹${item.price}</td>
+          <td>₹${item.total.toFixed(2)}</td>
+          <td>${item.timestamp}</td>
+        `;
+        dataTable.appendChild(tr);
+
+        // Add to totals
+        if (totals[item.material]) {
+          totals[item.material].qty += item.quantity;
+          totals[item.material].amount += item.total;
+        }
+      });
+
+      // Render totals panel
+      let grandTotalAmount = 0;
+      totalsPanel.innerHTML = `
+        <h2>📊 Material Totals</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Material</th>
+              <th>Total Qty</th>
+              <th>Total Amount (₹)</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${Object.keys(totals).map(material => {
+              const unit = material === 'Cement' ? 'Bags' : 'KG';
+              grandTotalAmount += totals[material].amount;
+              return `
+                <tr>
+                  <td>${material}</td>
+                  <td>${totals[material].qty.toFixed(2)} ${unit}</td>
+                  <td>₹${totals[material].amount.toFixed(2)}</td>
+                </tr>
+              `;
+            }).join('')}
+          </tbody>
+          <tfoot>
+            <tr>
+              <th colspan="2" style="text-align:right;">Grand Total</th>
+              <th>₹${grandTotalAmount.toFixed(2)}</th>
+            </tr>
+          </tfoot>
+        </table>
+      `;
+    });
+  </script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f4f8;
+      margin: 0;
+      padding: 20px;
+    }
+    h1, h2 {
+      text-align: center;
+      color: #254262;
+    }
+    form {
+      background: #fff;
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    form label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    form input, form select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 4px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    #totalDisplay {
+      margin-top: 15px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #254262;
+      text-align: right;
+    }
+    form button {
+      margin-top: 15px;
+      background: #254262;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+      font-size: 16px;
+    }
+    table {
+      width: 100%;
+      max-width: 900px;
+      margin: 30px auto;
+      border-collapse: collapse;
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    table th, table td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: center;
+    }
+    table th {
+      background: #254262;
+      color: white;
+    }
+    #totalsPanel {
+      max-width: 900px;
+      margin: 40px auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>🧾 Material Entry Panel</h1>
+
+  <!-- Form -->
+  <form id="entryForm">
+    <label>Party Name:</label>
+    <input type="text" id="partyName" required>
+
+    <label>Material:</label>
+    <select id="material" required>
+      <option value="Cement">Cement</option>
+      <option value="Reti">Reti</option>
+      <option value="Kapchi">Kapchi</option>
+      <option value="Steel">Steel</option>
+    </select>
+
+    <label>Unit:</label>
+    <select id="unit" required>
+      <option value="Bags">Bags</option>
+      <option value="KG">KG</option>
+    </select>
+
+    <label>Quantity:</label>
+    <input type="number" id="quantity" step="0.01" required>
+
+    <label>Price per unit (₹):</label>
+    <input type="number" id="price" step="0.01" required>
+
+    <div id="totalDisplay">Total: ₹ 0.00</div>
+
+    <button type="submit">Save Entry</button>
+  </form>
+
+  <!-- Data Table -->
+  <table>
+    <thead>
+      <tr>
+        <th>Party</th>
+        <th>Material</th>
+        <th>Unit</th>
+        <th>Qty</th>
+        <th>Price</th>
+        <th>Total</th>
+        <th>Date & Time</th>
+      </tr>
+    </thead>
+    <tbody id="dataTableBody"></tbody>
+  </table>
+
+  <!-- Totals Panel -->
+  <div id="totalsPanel"></div>
+</body>
+</html>
