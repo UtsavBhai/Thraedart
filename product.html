@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>String Art Portrait - Product Page</title>
+<title>String Art Portrait</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
 <style>
 * { box-sizing: border-box; font-family: 'Poppins', sans-serif; }
@@ -121,7 +121,7 @@ body { margin: 0; background: #fff; color: #333; }
 .option-group { margin: 20px 0; }
 .option-title { font-weight: 600; margin-bottom: 8px; }
 .image-type-options button, .size-options button { padding: 10px 15px; border: 2px solid #ccc; background: #fff; margin-right: 10px; border-radius: 8px; cursor: pointer; transition: 0.3s; }
-.image-type-options button.active, .size-options button.active { border-color: var(--theme-color); background: var(--theme-color); color: #fff; }
+.image-type-options button.active, .size-options button.active { background:#c6cfdc; color: var(--theme-color); }
 .actions { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
 .actions button { padding: 15px; font-size: 1rem; font-weight: 600; border: none; cursor: pointer; border-radius: 8px; }
 .personalize-btn { background: var(--theme-color); color: #fff; }
@@ -553,7 +553,7 @@ body { margin: 0; background: #fff; color: #333; }
       <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjoDqeZpIzlg2jCsp0wH8EDFYWywCg_fc9I4Mtegi8S4ZGEq3xV0HO77WTHoaTsCbRXgBvo1hOcXNHfCvfPbFWxSuNLQGl7TGWingzsHUSvWmjSHg5_KFMPrv_Zp3RY4BHLdi7XWTaaQ9H79aMZjitx7Ewz5PtUKsfFWOdQBVGyIuF0oOTHs_5sy1HGrhE1/s1600/2nd.webp" onclick="changeImage(this)">
       <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjTa3SZ8-fGngNBhYWts7YM8AQ9BAflpol9iHdpKzS34kt8mNmqvk2Qpf-hR0ewbFpprpMge-OnMXkrKutrRD_WkILDlvuPjF_m8IftjPKsapqiouF0bUJX6tM9MEnUXjEnlLb9C-gVsoWIYRIr6NqFTz0v6rw8AAxum0f4Px7R9Yr-EdSPyVGnspF2ivqw/s1600/3rd.webp" onclick="changeImage(this)">
       <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgEkT5ScLCDwGc1rRe7JO-miGHYbaqmc-Ou_TKIrs7TQ5vKM9jrQANo0KZvWmWirckJW7_Prh6dLAEVDFNgb0h97dIjpiE9QW2QEaDEVv8jlpi7EI9Qy8NQ-waf8FdVFgY5upCjgPIvncV10VG46D9z9H7rdY_PRqAKkC2h5wS2VQBNXO1sq4Okf69E3ZRY/s1600/4th.webp" onclick="changeImage(this)">
-      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjt3uWzVNSzmrNaiQIGOVl4KFOq1yRrcHAkmqAQHUG6sVFgjiLiAQ2hhGQVBwrqOVU1OPJARQWVquhuTQSCWXQjIgUdiXPJ_HX-Q8RjMNOV9QqZa_sXRQ9ZJ3nSlUaq2UmzaE9sOd9kbLpJMZbjCSmULPenYoPjYzAmMli2vE3CiaBHTLxoJtfUPvEdIpRk/s1600/5th.webp" onclick="changeImage(this)">
+      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgEkT5ScLCDwGc1rRe7JO-miGHYbaqmc-Ou_TKIrs7TQ5vKM9jrQANo0KZvWmWirckJW7_Prh6dLAEVDFNgb0h97dIjpiE9QW2QEaDEVv8jlpi7EI9Qy8NQ-waf8FdVFgY5upCjgPIvncV10VG46D9z9H7rdY_PRqAKkC2h5wS2VQBNXO1sq4Okf69E3ZRY/s1600/4th.webp" onclick="changeImage(this)">
     </div>
     <div class="main-image">
     <button class="prev" onclick="prevImage()">❮</button>
@@ -563,8 +563,8 @@ body { margin: 0; background: #fff; color: #333; }
   </div>
 
   <div class="details-section">
-    <div class="product-title">Threads of Identity : Capturing Faces in Strings</div>
-    <div class="rating">⭐⭐⭐⭐⭐ 4.9</div>
+    <div class="product-title">String Art Portrait for Gift: Threads of Identity</div>
+    <div class="rating">⭐⭐⭐⭐⭐(108 reviews)</div>
     <div class="price" id="price">
       <span class="old-price" id="oldPrice">₹7,999</span>
       <span id="currentPrice">₹4,999</span>
@@ -574,12 +574,12 @@ body { margin: 0; background: #fff; color: #333; }
     <!-- FEATURE BADGES -->
     <div class="feature-badges">
       <div class="feature">
-        <img src="https://img.icons8.com/?size=100&id=BpYAYLNT5CPW&format=png&color=000000" alt="Ready to Hang">
-        <span>Ready to Hang</span>
-      </div>
-      <div class="feature">
         <img src="https://img.icons8.com/?size=100&id=nVwrm2T2GkIP&format=png&color=000000" alt="Single Thread">
         <span>Made Just From a Single Thread</span>
+      </div>
+      <div class="feature">
+        <img src="https://img.icons8.com/?size=100&id=BpYAYLNT5CPW&format=png&color=000000" alt="Ready to Hang">
+        <span>Ready to Hang</span>
       </div>
       <div class="feature">
         <img src="https://img.icons8.com/color/48/000000/gift.png" alt="Single Thread">
@@ -592,16 +592,9 @@ body { margin: 0; background: #fff; color: #333; }
     </div>
 
     <!-- OPTIONS -->
-    <div class="option-group">
-      <div class="option-title">Image Type:</div>
-      <div class="image-type-options">
-        <button class="active" onclick="selectOption(this, 'image-type')">Single Face</button>
-        <button onclick="selectOption(this, 'image-type')">Double Face</button>
-      </div>
-    </div>
 
     <div class="option-group">
-      <div class="option-title">Select Size:</div>
+      <div class="option-title">Select Portrait Size:</div>
       <div class="size-options">
         <button class="active" onclick="selectOption(this, 'size')">42 cm Diameter</button>
         <button onclick="selectOption(this, 'size')">60 cm Diameter</button>
@@ -620,6 +613,11 @@ body { margin: 0; background: #fff; color: #333; }
     <div class="actions">
       <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgzSFcSifyvVw1ocGQZsNAQKX_oz7aHpiqBbbzY6HLEDkIJrr-p4LdEqiFHGBKh2CiG4W8JN2r-bdxigXL-8y-cPTBXWgoUhoexZ8j83K9Q2VDG-PDctkGkVzad7QLWzwKfZ6vmKJkbf2ngqZTJvKgDOXioVw7OOrWRES8lG7kUThPOHBhqKuPCCB7RHIg/s1600/safe.png" alt="safe checkout" style="width:100%">
      <button class="personalize-btn" id="personalizeBtn">Personalize Now @ ₹<span id="btnPrice">4,999</span></button>
+    </div>
+
+    <div id="urgency-section" style="margin-top: 15px; font-size: 14px; color: #333;">
+      <p id="viewerCount" style="margin: 5px 0; font-weight: 500;">🔥 Loading viewers...</p>
+      <p id="soldCount" style="margin: 5px 0; font-weight: 500;">⏰ Loading sold data...</p>
     </div>
 
     <div class="extra-info">
@@ -883,12 +881,6 @@ updatePrice();
 </script>
 
 <script>
-  // Mapping for short codes
-  const imageTypeCode = {
-    "Single Face": "s",
-    "Double Face": "d"
-  };
-
   const sizeCode = {
     "42 cm Diameter": "42",
     "60 cm Diameter": "60",
@@ -896,13 +888,18 @@ updatePrice();
   };
 
   document.getElementById('personalizeBtn').addEventListener('click', () => {
-    const imageTypeShort = imageTypeCode[selectedImageType];
     const sizeShort = sizeCode[selectedSize];
     const date = document.getElementById('deliveryDate').value; // YYYY-MM-DD
     const dateShort = date.replace(/-/g, ""); // 20251017 format
 
-    const url = `https://utsavbhai.github.io/Thraedart/order.html?img=${imageTypeShort}&size=${sizeShort}&date=${dateShort}`;
-    window.location.href = url;
+    const message = `Hi, I want to order a Personalized Thread Art Portrait.%0ASize: ${sizeShort}cm%0ADate: ${date}`;
+
+    // WhatsApp URL
+    const phone = "9824917935"; // your WhatsApp number
+    const whatsappUrl = `https://wa.me/919824917935?text=${message}`;
+
+    // Open WhatsApp
+    window.open(whatsappUrl, "_blank");
   });
 </script>
 
@@ -1008,6 +1005,52 @@ updatePrice();
     changeImage(thumbnails[0]); // show first image on load
   });
 </script>
+
+<script>
+  let currentViewers = Math.floor(Math.random() * (150 - 25 + 1)) + 25; // 25-150 initial
+
+  function updateViewerCount() {
+    // Organic fluctuation (-5 to +5)
+    const change = Math.floor(Math.random() * 11) - 5;
+    let newViewers = currentViewers + change;
+
+    // Clamp between 25 and 150
+    if (newViewers < 25) newViewers = 25;
+    if (newViewers > 150) newViewers = 150;
+
+    currentViewers = newViewers;
+    document.getElementById('viewerCount').innerText = `🔥 ${currentViewers} people are viewing this right now`;
+  }
+
+  updateViewerCount();
+  setInterval(updateViewerCount, 3000);
+  const SOLD_KEY = 'soldCounterData';
+
+  function getSoldData() {
+    const saved = localStorage.getItem(SOLD_KEY);
+    if (saved) {
+      const data = JSON.parse(saved);
+      const now = Date.now();
+      
+      if (now - data.timestamp < 8 * 60 * 60 * 1000) {
+        return data;
+      }
+    }
+    const sold = Math.floor(Math.random() * 100) + 1; 
+    const hours = Math.floor(Math.random() * 15) + 1; 
+    const newData = { sold, hours, timestamp: Date.now() };
+    localStorage.setItem(SOLD_KEY, JSON.stringify(newData));
+    return newData;
+  }
+
+  function updateSoldCount() {
+    const data = getSoldData();
+    document.getElementById('soldCount').innerText = `⏰ ${data.sold} sold in last ${data.hours} hours`;
+  }
+
+  updateSoldCount();
+</script>
+
 
 </body>
 </html>
