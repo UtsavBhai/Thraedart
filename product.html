@@ -539,12 +539,60 @@ body { margin: 0; background: #fff; color: #333; }
     font-size: 13px;
     opacity: 0.7;
   }
+
+
+  .logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background-color: #254262;
+    }
+
+    .logo img {
+      height: 40px;
+      width: 40px;
+      object-fit: contain;
+    }
+
+    .logo h1 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: white;
+      white-space: nowrap;
+    }
+
+    /* ===== MOBILE & TABLET ===== */
+    @media (max-width: 991px) {
+      .logo h1 {
+        display: none; /* Hide brand name on mobile & tablet */
+      }
+
+      .logo img {
+        height: 38px;
+        width: 38px;
+      }
+    }
+
+    /* ===== DESKTOP ===== */
+    @media (min-width: 992px) {
+      .logo h1 {
+        display: inline-block;
+      }
+    }
+
+
 </style>
 </head>
 <body>
 
 <!-- Rotating Offer -->
 <div class="offer-header" id="offerHeader"></div>
+
+<div class="logo">
+      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjjoPwGlIbasu8Zh9vlnnsGy_Csi-70dZVKsAmq4HDJ4dyi9TmGzqGSk995y_Q26tO8ue6QlNbIvCt7HzhcRPEzAw4nFS13_FkrtbkIDvV8K1FxJVZVyutjrVKozQGBzzm4LTZFwv1088nupldwZC0LA2KxLCnmPiahkWAuUHtP8oILGGoMvzTvylmdc_Vr/s1600/logo.webp" alt="Logo">
+      <h1>Artizo</h1>
+</div>
 
 <div class="container">
   <div class="image-section">
@@ -669,6 +717,20 @@ Thanks for supporting made-to-order, meaningful gifting!</p>
         <div class="role">Customer</div>
       </div>
 
+       <div class="review">
+        <img src="https://i.pravatar.cc/100?img=2" alt="User 2">
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.905 1.492 8.289L12 18.896l-7.428 4.604 1.492-8.289L0 9.306l8.332-1.151z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.905 1.492 8.289L12 18.896l-7.428 4.604 1.492-8.289L0 9.306l8.332-1.151z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.905 1.492 8.289L12 18.896l-7.428 4.604 1.492-8.289L0 9.306l8.332-1.151z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.905 1.492 8.289L12 18.896l-7.428 4.604 1.492-8.289L0 9.306l8.332-1.151z"/></svg>
+        </div>
+        <p>“Super fast delivery and the support team was very helpful.”</p>
+        <div class="name">Priya Mehta</div>
+        <div class="role">Customer</div>
+      </div>
+
+
       <div class="review">
         <img src="https://i.pravatar.cc/100?img=3" alt="User 3">
         <div class="stars">
@@ -681,6 +743,20 @@ Thanks for supporting made-to-order, meaningful gifting!</p>
         <div class="role">Regular Buyer</div>
       </div>
     </div>
+
+     <div class="review">
+        <img src="https://i.pravatar.cc/100?img=2" alt="User 2">
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.905 1.492 8.289L12 18.896l-7.428 4.604 1.492-8.289L0 9.306l8.332-1.151z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.905 1.492 8.289L12 18.896l-7.428 4.604 1.492-8.289L0 9.306l8.332-1.151z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.905 1.492 8.289L12 18.896l-7.428 4.604 1.492-8.289L0 9.306l8.332-1.151z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.905 1.492 8.289L12 18.896l-7.428 4.604 1.492-8.289L0 9.306l8.332-1.151z"/></svg>
+        </div>
+        <p>“Super fast delivery and the support team was very helpful.”</p>
+        <div class="name">Priya Mehta</div>
+        <div class="role">Customer</div>
+      </div>
+
 
     <div class="nav prev">&#10094;</div>
     <div class="nav next">&#10095;</div>
