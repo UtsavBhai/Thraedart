@@ -1,0 +1,248 @@
+<html>
+<head>
+  <meta charset="UTF-8"></meta>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"></meta>
+  <title>🌼Happy New Year 2025✨</title>
+  <style>
+    .removeborder {
+
+            border: none;
+
+            border-radius: 10px;
+
+            box-shadow: 0 0 20px black;
+
+            width: 100%; /* Optional, adjust the size as needed */
+
+            height: 300px;
+
+        }
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    .time{
+      display:inline;
+      justify-content:center;
+      margin-top:0px;
+     letter-spacing: 1px;
+    }
+	.tt{
+      
+       display:inline-block;
+      border-radius: 5px;
+      font-size: 20px;
+      font-weight: bold;
+  	  color:green;
+       margin-top:15px;
+     
+    }
+    .countdown-item {
+      display:inline;
+      margin:0px 3px;
+      border-radius: 5px;
+      font-size: 24px;
+      font-weight: bold;
+      color:orange;
+    }
+    h2{
+      font-size:30px;
+    }
+    h1{
+      color:black;
+      line-height: 50px;
+      margin-bottom:5px;
+    }
+    table{
+      color:red;
+    }
+    td{
+      padding:3px 10px;  
+    }
+    img{
+      width:100%;
+      margin-top:10px;
+    }
+    .quote{
+      color:black;
+      font-weight:900;
+      font-size:30px;
+      line-height: 45px;
+    }
+    .remove{
+      border:0px;
+    }
+    label{
+      font-size:10px;
+      font-weight:800;
+      color:red;
+    }
+    #name{
+      font-size:20px;
+      border:2px solid orange;
+      border-radius:20px 0px 0px 20px;
+      padding:5px;
+      text-align:center;
+    }
+    #shareBtn{
+      font-size:20px;
+      border:2px solid orange;
+      border-radius:0px 20px 20px 0px;
+      padding:5px;
+      text-align:center;
+      margin-left:-5px;
+      color:white;
+      background-color:orange;
+      font-weight:900;
+      letter-spacing:1px;
+    }
+    .shareff{
+      font-size:25px;
+      font-weight:600;
+      text-align:center;
+      letter-spacing:1px;
+      line-height:30px;
+    }
+    .dis{
+      color:red;
+    }
+    #shareme{
+      font-size:25px;
+      padding:10px;
+      border:2px solid black;
+      font-weight:900;
+      border-radius:20px;
+      box-shadow:0px 0px 20px black;
+      letter-spacing:5px;
+      margin-bottom:10px;
+    }
+    #ads{
+      border-radius:1px;
+      border:1px;
+      box-shadow:0px 0px 20px black;
+    }
+    #seconds{
+      font-size:30px;
+      }
+  </style>
+  <!-- Google tag (gtag.js) -->
+
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-Y5CFWHHL1B"></script>
+
+<script>
+
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag(){dataLayer.push(arguments);}
+
+  gtag('js', new Date());
+
+  gtag('config', 'G-Y5CFWHHL1B');
+
+</script>
+</head>
+<body>
+  
+  <h2>🎉🎈💥🎆🥳🥂</h2>
+  <div class="time">  
+    <div class="countdown-item" id="days">0</div>
+    <div class="tt"> Days,</div>
+    <div class="countdown-item" id="hours">0</div>
+    <div class="tt"> Hours,</div>
+    <div class="countdown-item" id="minutes">0</div>
+    <div class="tt"> Minutes,</div><br />
+    <div class="countdown-item" id="seconds">0</div>
+    <div class="tt">Seconds </div>
+    <div class="tt" style="color: orange;">Ago</div>
+  </div>
+  
+  
+ <img alt="Happy New Year" border="0" data-original-height="498" data-original-width="498" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgFefVsDUVxY8dKGV9mgwbBNWFc7x_Lk0-46itKzUKGL3uzyn5xkfVL0djfV8veaFR6Aosd0ezZgjaxK2O53G7EZmuWgy-jW8Ctt78jh-3qWQobuMR5StML0r8-u4UbfMYqMwHS8x456zA-Ig_ma-TypFWyPLRdmFwqY9-eTJh800JnzjM9qvU9dFOkmOo/s1600/happy-new-year-new-year%20%281%29.gif"/>
+
+  <div class="quote">
+   તમને અને તમારા પરિવાર ને<br /> મારા તરફથી,વર્ષ 2025ની<br/> 
+🌸હાર્દિક શુભકામનાઓ🌸<br/>
+👇|| 2 0 2 5 ||👇 <br />
+  </div>
+  
+  <img class="removeborder" onclick="sendmsg()" alt="Sponsored Post" border="0" data-original-height="788" data-original-width="940" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgVFRd-uJ_m_l9qhyphenhyphen3hZLazN9Ky7ctSecMGMc0E3Rlwtz1LJB6aGA1dptodRWHKyS10bzk06253KApNOhUhtBhY00ljjzHvDL5eeZZ_9zdC7JknztqCqCfRaETNSSEFGEvltud8pZNzoc1GCeZ0A11Tv30xP-NTdsBW9GhGwvrRi7LCtPBWmXxrrmSizAM/s1600/Red%20Black%20Digital%20Marketing%20Agency%20Facebook%20Post.png"/>
+  <b>** Sponsored **</b><br /><br />
+  
+   <div id="shareme" onclick="shareOnWhatsApp()">🔁SHARE✅</div>
+
+  <img alt="Happy New Year" border="0" data-original-height="1000" data-original-width="1000" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgVQ2wIo1rIz7uwpBX7XIglE4a9Y2dslitHadd8JYsd_9Pqe-2HQ0Z254wXH0i_6pXAYRtqNP35_vC5aCz27PQJ-XxDhc0_yfS89zA-SGBegb2HPU8D7fiTCfiHQN3qpIGdb5LaofhhVw9Pyzu3h4yXGcFBVd0L94kPldUNj_x_GxV8sJO7n0em-pJtVY0/s1600/pudgy-penguin%20%281%29.gif"/>
+  
+  <br>
+  <div class="quote">"આ નવું વર્ષ 2025, આપના જીવનમાં આનંદ, સુખ અને શાંતિ લાવે એવી ભગવાનને પ્રાર્થના."<br/><br>
+🙏તમને સૌને મારા તરફથી🙏<br />|| Happy New Year ||
+  </div>
+  
+  <img alt="Happy New Year" border="0" data-original-height="306" data-original-width="460" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjzQ2q6Sof9vSQQ7s6TaqPU6TuLh24EbqtYX6YGTgspAIhyLDnYWWzPdQqQRxsjdswlBkHYyPiTk9n32nsfzWI8cQMTfE6uaAsFp_8Ew11IVbDoAEkgWQFuPGLKdJZyI02oVjlCoK4J_dtazuneMlDlXpB3V7yNzrEXRW1_pMry4a94p3XASShR7MZNXis/s1600/happy-new-year-new-year.gif"/><br /><br />
+  
+  <div class="shareff">🙏 આ મેસેજ 2025 સુધીમાં દરેકના મોબાઈલમાં હોવો જોઈએ,જે તમારી ફરજ છે..🙏<br />આ મેસેજ ઓછામાં ઓછા 10 લોકો સાથે શેર કરો...🔁⤴️</div><br />
+  
+  <div id="shareme" onclick="shareOnWhatsApp()">🔁SHARE✅</div>
+  
+  <img alt="Happy New Year" border="0" data-original-height="498" data-original-width="498" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhUkhuGvNSyUoF5Y0Vq7U8xORzZmuByHHtZTW9yLsP-JAMhY9TUhUPlfSZaTQaL1UIZPuL1zyc5nLcs5HAFb7mzVaGfWrWmu3HFWMTjk13pTPSaJr-neMxiSxYIjpAFZNZXOi6Fg73FFvzVyU-1CnkiXpNODTUXH68yYpRW8fz81y3-yGvNrvFWgH-tV8s/s1600/pudgy-penguin.gif"/>
+  
+  <h3 class="dis">* અસ્વીકરણ *</h3>
+  <marquee class="dis">અમે અમારી જાહેરાતોમાં માહિતીની ચોકસાઈ અથવા પરિણામોની જવાબદારી લેતા નથી.  અમારી જાહેરાતોના આધારે ખરીદી અથવા વેચાણ માટેનું તમારું સ્વતંત્ર નિર્ણય અમારા તરફથી કોઈ જવાબદારીને આધીન નથી.</marquee>
+  
+  <!--timing set part don't touch this part-->
+  <script>
+    // Set the target date
+    const targetDate = new Date('2025-01-01T00:00:00');
+
+    function updateCountdown() {
+      const now = new Date();
+      const timeDifference = targetDate - now;
+
+      if (timeDifference <= 0) {
+        // If the target date has passed, display 0 for all countdown items
+        document.getElementById('days').textContent = '0';
+        document.getElementById('hours').textContent = '0';
+        document.getElementById('minutes').textContent = '0';
+        document.getElementById('seconds').textContent = '0';
+        return;
+      }
+
+      // Calculate days, hours, minutes, and seconds
+      const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+      // Update the countdown elements
+      document.getElementById('days').textContent = days;
+      document.getElementById('hours').textContent = hours;
+      document.getElementById('minutes').textContent = minutes;
+      document.getElementById('seconds').textContent = seconds;
+    }
+    	
+    // Update the countdown every second
+    setInterval(updateCountdown, 1000);
+  </script>
+     <script>
+function shareOnWhatsApp() {
+    var message = "🎉 Happy New Year 🎊\n\nIn Advance Wishing...\n\n😇Hello👋\nMe tamane 2025 ni Advance ma shubhechchha didhi chhe...\n\nJOVO:👉";
+    var url = "https://nextcomingsoon.blogspot.com/p/happy-new-year.html";
+    var whatsappLink = "https://api.whatsapp.com/send?text=" 
+    +encodeURIComponent(message + " " + url);
+    window.open(whatsappLink);
+}
+    function sendmsg() {
+    // Replace the placeholder number with your actual WhatsApp number
+    var whatsappNumber = "9574779965";
+    var message = "BY ADS FROM WEBSITE\n\nI Need Viral Mini Website For My Business.\n";
+
+    // Constructing the WhatsApp URL
+    var whatsappUrl = "https://wa.me/" + whatsappNumber + "?text=" + encodeURIComponent(message);
+
+    // Opening WhatsApp in a new tab with the pre-filled message
+    window.open(whatsappUrl, '_blank');
+}
+</script>
+</body>
+</html>
+
+      
