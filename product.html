@@ -266,134 +266,104 @@ body { margin: 0; background: #fff; color: #333; }
       }
     }
 
-    .review-main{
+    /* reviews */
+    .rr-main{
       display: flex;
       justify-content: center;
       align-items: center;
-      margin: 0;
-      padding: 20px;
+     
     }
 
-     .review-slider {
-      position: relative;
-      width: 100%;
+    .review-container {
       max-width: 750px;
+      position: relative;
       overflow: hidden;
-      background: #ffffff;
-      border-radius: 20px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
     }
 
-    .review-slides {
+    .reviews {
       display: flex;
-      transition: transform 0.6s ease-in-out;
+      transition: transform 0.5s ease-in-out;
     }
 
     .review {
       flex: 0 0 100%;
-      box-sizing: border-box;
-      padding: 35px 25px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.5s ease, transform 0.5s ease;
       text-align: center;
-    }
-
-    .review.active {
-      opacity: 1;
-      transform: translateY(0);
+      padding: 25px 15px;
+      background: #fff;
+      border-radius: 12px;
+      border: 2px dashed #254262;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
     }
 
     .review img {
-      width: 80px;
-      height: 80px;
+      width: 100px;
+      height: 100px;
       border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 15px;
-      border: 3px solid #4a6fa5;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      margin-bottom: 10px;
     }
 
     .stars {
       display: flex;
       justify-content: center;
-      margin-bottom: 10px;
+      margin: 8px 0;
     }
 
     .stars svg {
       width: 22px;
       height: 22px;
-      fill: #f5b301;
-      margin-right: 3px;
+      fill: #f7b500;
+      margin: 0 2px;
     }
 
     .review p {
-      font-size: 17px;
-      color: #333;
-      text-align: center;
-      margin-bottom: 15px;
-      line-height: 1.6;
-      font-style: italic;
-      max-width: 90%;
+      font-size: 15px;
+      color: #444;
+      margin: 10px 0 8px;
+      line-height: 1.4;
     }
 
     .review .name {
       font-weight: 600;
-      color: #254262;
-      margin-top: 5px;
       font-size: 16px;
+      margin-top: 5px;
     }
 
     .review .role {
       font-size: 13px;
-      color: #4a6fa5;
-      opacity: 0.8;
+      color: #777;
     }
 
-    /* Navigation arrows */
-    .nav {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: #4a6fa5;
-      color: #fff;
-      padding: 12px;
-      cursor: pointer;
+    /* Dots Navigation */
+    .dots {
+      display: flex;
+      justify-content: center;
+      margin-top: 15px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
       border-radius: 50%;
-      font-size: 18px;
-      user-select: none;
-      transition: all 0.3s ease;
-      z-index: 2;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+      background: #ccc;
+      margin: 0 4px;
+      cursor: pointer;
+      transition: background 0.3s;
     }
 
-    .nav:hover {
-      background: #254262;
-      transform: translateY(-50%) scale(1.1);
+    .dot.active {
+      background: #333;
     }
 
-    .prev {
-      left: 15px;
-    }
-
-    .next {
-      right: 15px;
-    }
-
-    @media (max-width: 600px) {
-      .review p {
-        font-size: 15px;
+    @media (max-width: 500px) {
+      .review {
+        padding: 20px 10px;
       }
-      .nav {
-        padding: 8px;
+      .review p {
         font-size: 14px;
       }
     }
 
-    .faq-section {
+  .faq-section {
     max-width: 750px;
     margin: auto;
     background: #ffffff;
@@ -671,33 +641,25 @@ body { margin: 0; background: #fff; color: #333; }
     <div class="extra-info">
       <h3 onclick="toggleFAQ(this)">Description</h3>
       <p>Handcrafted string art portrait made with precision, capturing faces with thousands of threads.This unique creation invites you to witness the fusion of artistic expression and meticulous craftsmanship, where every inch resonates with the spirit of handmade elegance.</p>
-      <h3 onclick="toggleFAQ(this)">Care Instructions</h3>
-      <p>Keep away from direct sunlight and moisture. Wipe with a soft dry cloth for cleaning.</p>
       <h3 onclick="toggleFAQ(this)">Return & Refund</h3>
-      <p>All our products are handmade and personalised — which means we don’t accept returns or cancellations once the order is placed.
-
-However, if your item arrives damaged or incorrect, we’re happy to help!
-
-Just send us a clear unboxing video and photos within 24 hours of delivery.
-
-Without proper proof, we won’t be able to process a replacement.
-
-Thanks for supporting made-to-order, meaningful gifting!</p>
+      <p>All our products are handmade and personalised — which means we don’t accept returns or cancellations once the order is placed.However, if your item arrives damaged or incorrect, we’re happy to help!Just send us a clear unboxing video and photos within 24 hours of delivery.Without proper proof, we won’t be able to process a replacement.Thanks for supporting made-to-order, meaningful gifting!</p>
     </div>
   </div>
 </div>
-
-<div class="review-main">
-<div class="review-slider">
-    <div class="review-slides">
-      <div class="review active">
+<br>
+<!-- Reviews Section-->
+ <div class="rr-main">
+<div class="review-container">
+    <div class="reviews">
+      <!-- 12+ REVIEWS HERE -->
+      <div class="review">
         <img src="https://i.pravatar.cc/100?img=1" alt="User 1">
         <div class="stars">
-          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.905 1.492 8.289L12 18.896l-7.428 4.604 1.492-8.289L0 9.306l8.332-1.151z"/></svg>
-          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.905 1.492 8.289L12 18.896l-7.428 4.604 1.492-8.289L0 9.306l8.332-1.151z"/></svg>
-          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.905 1.492 8.289L12 18.896l-7.428 4.604 1.492-8.289L0 9.306l8.332-1.151z"/></svg>
-          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.905 1.492 8.289L12 18.896l-7.428 4.604 1.492-8.289L0 9.306l8.332-1.151z"/></svg>
-          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.905 1.492 8.289L12 18.896l-7.428 4.604 1.492-8.289L0 9.306l8.332-1.151z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568..."/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568..."/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568..."/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568..."/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568..."/></svg>
         </div>
         <p>“Absolutely amazing service! The quality exceeded my expectations.”</p>
         <div class="name">Rahul Sharma</div>
@@ -707,10 +669,35 @@ Thanks for supporting made-to-order, meaningful gifting!</p>
       <div class="review">
         <img src="https://i.pravatar.cc/100?img=2" alt="User 2">
         <div class="stars">
-          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.905 1.492 8.289L12 18.896l-7.428 4.604 1.492-8.289L0 9.306l8.332-1.151z"/></svg>
-          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.905 1.492 8.289L12 18.896l-7.428 4.604 1.492-8.289L0 9.306l8.332-1.151z"/></svg>
-          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.905 1.492 8.289L12 18.896l-7.428 4.604 1.492-8.289L0 9.306l8.332-1.151z"/></svg>
-          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.905 1.492 8.289L12 18.896l-7.428 4.604 1.492-8.289L0 9.306l8.332-1.151z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568..."/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568..."/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568..."/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568..."/></svg>
+        </div>
+        <p>“Super fast delivery and the support team was very helpful.”</p>
+        <div class="name">Priya Mehta</div>
+        <div class="role">Customer</div>
+      </div>
+
+      <div class="review">
+        <img src="https://i.pravatar.cc/100?img=3" alt="User 3">
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568..."/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568..."/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568..."/></svg>
+        </div>
+        <p>“Great experience overall. Will definitely order again.”</p>
+        <div class="name">Neha K.</div>
+        <div class="role">Regular Buyer</div>
+      </div>
+
+      <div class="review">
+        <img src="https://i.pravatar.cc/100?img=2" alt="User 2">
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568..."/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568..."/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568..."/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568..."/></svg>
         </div>
         <p>“Super fast delivery and the support team was very helpful.”</p>
         <div class="name">Priya Mehta</div>
@@ -720,48 +707,164 @@ Thanks for supporting made-to-order, meaningful gifting!</p>
        <div class="review">
         <img src="https://i.pravatar.cc/100?img=2" alt="User 2">
         <div class="stars">
-          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.905 1.492 8.289L12 18.896l-7.428 4.604 1.492-8.289L0 9.306l8.332-1.151z"/></svg>
-          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.905 1.492 8.289L12 18.896l-7.428 4.604 1.492-8.289L0 9.306l8.332-1.151z"/></svg>
-          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.905 1.492 8.289L12 18.896l-7.428 4.604 1.492-8.289L0 9.306l8.332-1.151z"/></svg>
-          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.905 1.492 8.289L12 18.896l-7.428 4.604 1.492-8.289L0 9.306l8.332-1.151z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568..."/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568..."/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568..."/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568..."/></svg>
         </div>
         <p>“Super fast delivery and the support team was very helpful.”</p>
         <div class="name">Priya Mehta</div>
         <div class="role">Customer</div>
       </div>
 
+       <div class="review">
+        <img src="https://i.pravatar.cc/100?img=2" alt="User 2">
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568..."/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568..."/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568..."/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568..."/></svg>
+        </div>
+        <p>“Super fast delivery and the support team was very helpful.”</p>
+        <div class="name">Priya Mehta</div>
+        <div class="role">Customer</div>
+      </div>
 
-      <div class="review">
+       <div class="review">
+        <img src="https://i.pravatar.cc/100?img=2" alt="User 2">
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568..."/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568..."/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568..."/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568..."/></svg>
+        </div>
+        <p>“Super fast delivery and the support team was very helpful.”</p>
+        <div class="name">Priya Mehta</div>
+        <div class="role">Customer</div>
+      </div>
+
+       <div class="review">
+        <img src="https://i.pravatar.cc/100?img=2" alt="User 2">
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568..."/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568..."/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568..."/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568..."/></svg>
+        </div>
+        <p>“Super fast delivery and the support team was very helpful.”</p>
+        <div class="name">Priya Mehta</div>
+        <div class="role">Customer</div>
+      </div>
+
+       <div class="review">
+        <img src="https://i.pravatar.cc/100?img=2" alt="User 2">
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568..."/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568..."/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568..."/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568..."/></svg>
+        </div>
+        <p>“Super fast delivery and the support team was very helpful.”</p>
+        <div class="name">Priya Mehta</div>
+        <div class="role">Customer</div>
+      </div>
+
+       <div class="review">
+        <img src="https://i.pravatar.cc/100?img=2" alt="User 2">
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568..."/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568..."/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568..."/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568..."/></svg>
+        </div>
+        <p>“Super fast delivery and the support team was very helpful.”</p>
+        <div class="name">Priya Mehta</div>
+        <div class="role">Customer</div>
+      </div>
+
+       <div class="review">
+        <img src="https://i.pravatar.cc/100?img=2" alt="User 2">
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568..."/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568..."/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568..."/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568..."/></svg>
+        </div>
+        <p>“Super fast delivery and the support team was very helpful.”</p>
+        <div class="name">Priya Mehta</div>
+        <div class="role">Customer</div>
+      </div>
+
+       <div class="review">
+        <img src="https://i.pravatar.cc/100?img=2" alt="User 2">
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568..."/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568..."/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568..."/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568..."/></svg>
+        </div>
+        <p>“Super fast delivery and the support team was very helpful.”</p>
+        <div class="name">Priya Mehta</div>
+        <div class="role">Customer</div>
+      </div>
+
+       <div class="review">
+        <img src="https://i.pravatar.cc/100?img=2" alt="User 2">
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568..."/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568..."/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568..."/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568..."/></svg>
+        </div>
+        <p>“Super fast delivery and the support team was very helpful.”</p>
+        <div class="name">Priya Mehta</div>
+        <div class="role">Customer</div>
+      </div>
+
+       <div class="review">
         <img src="https://i.pravatar.cc/100?img=3" alt="User 3">
         <div class="stars">
-          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.905 1.492 8.289L12 18.896l-7.428 4.604 1.492-8.289L0 9.306l8.332-1.151z"/></svg>
-          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.905 1.492 8.289L12 18.896l-7.428 4.604 1.492-8.289L0 9.306l8.332-1.151z"/></svg>
-          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.905 1.492 8.289L12 18.896l-7.428 4.604 1.492-8.289L0 9.306l8.332-1.151z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568..."/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568..."/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568..."/></svg>
         </div>
         <p>“Great experience overall. Will definitely order again.”</p>
         <div class="name">Neha K.</div>
         <div class="role">Regular Buyer</div>
       </div>
-    </div>
 
-     <div class="review">
+      <div class="review">
         <img src="https://i.pravatar.cc/100?img=2" alt="User 2">
         <div class="stars">
-          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.905 1.492 8.289L12 18.896l-7.428 4.604 1.492-8.289L0 9.306l8.332-1.151z"/></svg>
-          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.905 1.492 8.289L12 18.896l-7.428 4.604 1.492-8.289L0 9.306l8.332-1.151z"/></svg>
-          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.905 1.492 8.289L12 18.896l-7.428 4.604 1.492-8.289L0 9.306l8.332-1.151z"/></svg>
-          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.905 1.492 8.289L12 18.896l-7.428 4.604 1.492-8.289L0 9.306l8.332-1.151z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568..."/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568..."/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568..."/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568..."/></svg>
         </div>
         <p>“Super fast delivery and the support team was very helpful.”</p>
         <div class="name">Priya Mehta</div>
         <div class="role">Customer</div>
       </div>
 
+      <div class="review">
+        <img src="https://i.pravatar.cc/100?img=2" alt="User 2">
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568..."/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568..."/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568..."/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568..."/></svg>
+        </div>
+        <p>“Super fast delivery and the support team was very helpful.”</p>
+        <div class="name">Priya Mehta</div>
+        <div class="role">Customer</div>
+      </div>
+    </div>
 
-    <div class="nav prev">&#10094;</div>
-    <div class="nav next">&#10095;</div>
+    <!-- Dots will be auto-generated for Review  -->
+    <div class="dots"></div>
   </div>
 </div>
+<br><br>
 
 <!--Frequently Asked Questions -->
 <div class="faq-section">
@@ -769,22 +872,27 @@ Thanks for supporting made-to-order, meaningful gifting!</p>
 
   <div class="faq">
     <div class="faq-question">What is your return policy?</div>
-    <div class="faq-answer">We offer a 30-day return policy for all items. If you’re not satisfied, you can return the product within 30 days for a full refund.</div>
+    <div class="faq-answer">Each of our Thread Art Portraits is handcrafted and personalized just for you — which means we’re unable to accept returns or cancellations once the order is placed.However, if your portrait arrives damaged or incorrect, don’t worry — we’ve got you covered! Simply share a clear unboxing video and photos within 24 hours of delivery, and we’ll arrange a replacement.</div>
   </div>
 
   <div class="faq">
     <div class="faq-question">How long does delivery take?</div>
-    <div class="faq-answer">Delivery usually takes 3-7 business days depending on your location.</div>
+    <div class="faq-answer">We start creating your portrait right after you place your order.Delivery usually takes 7–10 days depending on your location and order volume.We’ll keep you updated every step of the way!</div>
   </div>
 
   <div class="faq">
     <div class="faq-question">Do you offer international shipping?</div>
-    <div class="faq-answer">Yes, we ship worldwide. Shipping charges will apply based on location.</div>
+    <div class="faq-answer">Yes! We ship worldwide so you can send love through art — no matter where you are.</div>
   </div>
 
   <div class="faq">
     <div class="faq-question">Can I track my order?</div>
-    <div class="faq-answer">Absolutely! Once your order is shipped, you will receive a tracking number via email or SMS.</div>
+    <div class="faq-answer">Absolutely! Once your order is shipped, you will receive a tracking number via WhatsApp or email.</div>
+  </div>
+
+  <div class="faq">
+    <div class="faq-question">Is shipping free within India?</div>
+    <div class="faq-answer">Yes, shipping is 100% free across India! No hidden charges — just beautiful handmade art delivered straight to your door.</div>
   </div>
 </div>
 
@@ -1006,54 +1114,37 @@ updatePrice();
 </script>
 
 <script>
-    const slides = document.querySelector('.review-slides');
-    const reviews = document.querySelectorAll('.review');
-    const prev = document.querySelector('.prev');
-    const next = document.querySelector('.next');
-
-    let totalSlides = reviews.length;
+    const reviews = document.querySelector('.reviews');
+    const reviewItems = document.querySelectorAll('.review');
+    const dotsContainer = document.querySelector('.dots');
     let currentIndex = 0;
-    let autoSlide;
 
-    function showSlide(index) {
-      slides.style.transform = `translateX(-${index * 100}%)`;
-      reviews.forEach(r => r.classList.remove('active'));
-      reviews[index].classList.add('active');
-    }
-
-    function nextSlide() {
-      currentIndex = (currentIndex + 1) % totalSlides;
-      showSlide(currentIndex);
-    }
-
-    function prevSlide() {
-      currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-      showSlide(currentIndex);
-    }
-
-    function startAutoSlide() {
-      autoSlide = setInterval(nextSlide, 4000);
-    }
-
-    function resetAutoSlide() {
-      clearInterval(autoSlide);
-      startAutoSlide();
-    }
-
-    next.addEventListener('click', () => {
-      nextSlide();
-      resetAutoSlide();
+    // Create dots dynamically
+    reviewItems.forEach((_, i) => {
+      const dot = document.createElement('div');
+      dot.classList.add('dot');
+      if (i === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => goToReview(i));
+      dotsContainer.appendChild(dot);
     });
 
-    prev.addEventListener('click', () => {
-      prevSlide();
-      resetAutoSlide();
-    });
+    const dots = document.querySelectorAll('.dot');
 
-    startAutoSlide();
+    function goToReview(index) {
+      currentIndex = index;
+      reviews.style.transform = `translateX(-${index * 100}%)`;
+      dots.forEach(dot => dot.classList.remove('active'));
+      dots[index].classList.add('active');
+    }
+
+    // Auto-slide every 4 seconds
+    setInterval(() => {
+      currentIndex = (currentIndex + 1) % reviewItems.length;
+      goToReview(currentIndex);
+    }, 4000);
   </script>
 
-  <script>
+<script>
   const faqs = document.querySelectorAll('.faq');
 
   faqs.forEach(faq => {
